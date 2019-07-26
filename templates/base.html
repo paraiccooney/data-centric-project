@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Recipes</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
@@ -15,21 +15,38 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo center"><i class="material-icons right">playlist_add</i></a>
-                <ul class="left hide-on-med-and-down">
+                <a href="#" class="brand-logo center"><i class="material-icons right" id="logo">spa</i></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="#">My Recipes <i class="material-icons right">face</i></a></li>
-                    <li><a href="#">Upload a recipe</a></li>
+                    <li><a href="#">Upload a recipe <i class="material-icons right">add_circle</i></a></li>
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li class="active"><a href="collapsible.html">Random Recipe</a></li>
-                    <li><a href="#">Search</a></li>
+                    <li class="active"><a href="collapsible.html">Random Recipe<i class="material-icons right">near_me</i></a></li>
+                    <li><a href="#">Search <i class="material-icons right">search</i></a></li>
                 </ul>
 
-
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="#">My Recipes <i class="material-icons right">face</i></a></li>
+                    <li><a href="#">Upload a recipe <i class="material-icons right">add_circle</i></a></li>
+                    <li class="active"><a href="collapsible.html">Random Recipe<i class="material-icons right">near_me</i></a></li>
+                    <li><a href="#">Search <i class="material-icons right">search</i></a></li>
+                </ul>
             </div>
-        </nav>
     </header>
+    </nav>
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+    </nav>
 
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container" id="copyright-text">
+                © Copyright Páraic Cooney 2019
+            </div>
+        </div>
+    </footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

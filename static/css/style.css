@@ -1,0 +1,18 @@
+/* logo icon resized */
+#logo {
+    font-size: 50px;
+}
+
+/* nav & footer colour changed */
+.nav-wrapper, .page-footer {
+    background-color: #FFAD4D;
+}
+
+/* footer styling */
+#copyright-text {
+    text-align: center;
+}
+
+.page-footer {
+   padding-top:0px; 
+}

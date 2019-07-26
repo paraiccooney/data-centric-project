@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 # / refers to the default route.
 @app.route('/')
 def my_recipes():
-    return render_template("base.html")
+    return render_template("index.html")
 
 
 # runs the app (instance created above)

@@ -22,6 +22,10 @@ mongo = PyMongo(app)
 def my_recipes():
     return render_template("index.html")
 
+@app.route('/upload_recipe')
+def upload_recipe():
+    return render_template("upload.html")
+
 
 # runs the app (instance created above)
 if __name__ == '__main__':

@@ -1,0 +1,70 @@
+{% extends 'base.html'%} {% block content %}
+
+<div class="page-heading indie-flower">
+    <h4>Upload A Recipe</h4>
+    <hr>
+</div>
+<form action="{{ url_for('upload_recipe') }}" method="POST" class="col s12">
+    <div class="row">
+        <div class="input-field col s8">
+            <input id="recipe_name" type="text" class="validate">
+            <label for="recipe_name">Recipe Name</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s8">
+            <input id="ingredients" type="text" class="validate">
+            <label for="ingredients">Ingredients (please separate each with a ",")</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea id="instructions" class="materialize-textarea" placeholder="Instructions;&#10;1. We&#10;2. Recommend&#10;3. Numbering your&#10;4. Steps for legability&#10;"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <input oninput=getSliderText() type="range" id="rangeInput" name="rangeInput" step="25" value="50">
+            <div align="center" style="font-size:25px;"><output name="amount" id="slider">Difficulty (Moderate)</output></div>
+        </div>
+        <div class="col s6">
+            <label for='filled'>
+                <input id='filled' type="checkbox" class="filled-in" checked="checked" />
+                <span>Filled in</span>
+            </label>
+        
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+            <i class="material-icons right">file_upload</i>
+            Upload Recipe
+        </button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+// slider functionality
+    function getSliderText() {
+    var rangeInput = document.getElementById("rangeInput").value
+    if (rangeInput == 0) {
+        document.getElementById("slider").innerHTML = "Very easy";
+    }
+    else if (rangeInput == 25) {
+        document.getElementById("slider").innerHTML = "Easy";
+    }
+    else if (rangeInput == 50) {
+        document.getElementById("slider").innerHTML = "Moderate";
+    }
+    else if (rangeInput == 75) {
+        document.getElementById("slider").innerHTML = "Difficult";
+    }
+    else {
+        document.getElementById("slider").innerHTML = "Very difficult";
+    }
+}
+</script>
+{% endblock %}

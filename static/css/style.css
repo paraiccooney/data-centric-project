@@ -45,3 +45,27 @@ img {
 .recipe-heading {
     margin-bottom: 35px;
 }
+
+/* instructions input size increase */
+#instructions {
+    min-height: 15vh;
+}
+
+/* checkbox button display */
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+opacity: 1;
+}
+
+/* placeholder text */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-weight: bold;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-weight: bold;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-weight: bold;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-weight: bold;
+}

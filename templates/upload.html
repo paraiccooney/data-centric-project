@@ -7,7 +7,7 @@
 <form action="{{ url_for('upload_recipe_button') }}" method="POST" class="col s12">
     <div class="row">
         <div class="input-field col s8">
-            <input id="recipe_name" type="text" class="validate" required>
+            <input id="recipe_name" type="text" class="validate" name="recipe_name" required>
             <label for="recipe_name">Recipe Name</label>
         </div>
     </div>
@@ -32,9 +32,10 @@
                 <label for="serves">Serves</label>
             </div>
         </div>
+    <!-- category checkboxes -->
         <div class="col s6 checkboxes">
             {% for category in categories %}
-            <input id='{{category.category_name}}' type="checkbox" class="filled-in" />
+            <input name= "{{category.category_name}}" id='{{category.category_name}}' type="checkbox" class="filled-in" />
             <label for='{{category.category_name}}'>
                 <span>{{category.category_name}}</span>
             </label>
@@ -50,7 +51,7 @@
     </div>
     <div class="row remove-white-space">
         <div class="col s12 submit-button">
-            <button class="btn waves-effect waves-light upload-button" type="submit" name="action">
+            <button class="btn waves-effect waves-light upload-button" type="submit">
             <i class="material-icons right">file_upload</i>
             Upload Recipe
         </button>

@@ -12,12 +12,28 @@
   <hr>  
 </div>
 <div class="row remove-white-space">
-    <div class="col s7">Ingredients: {{recipe.ingredients}}<br>
-    {{recipe.instructions}}<br>
-    Serves:{{recipe.serves}}</div>
+    <div class="col s7">
+    <b>Ingredients:</b> {{recipe.ingredients}}<br>
+    <b>Instructions: </b>{{recipe.instructions}}<br>
+    <b>Serves: </b>{{recipe.serves}} <br>
+    <b>Difficulty: </b>
+    <!-- if statement for difficulty -->
+    {% if recipe.difficulty == "0" %}
+    <span>Very Easy</span>
+    {% elif recipe.difficulty == "25" %}
+    <span>Easy</span>
+    {% elif recipe.difficulty == "50" %}
+    <span>Moderate</span>
+    {% elif recipe.difficulty == "75" %}
+    <span>Difficult</span>
+    {% elif recipe.difficulty == "100" %}
+    <span>Very Difficult</span>
+    {% endif %}
+    </div>
     <div class="col s5">
-    <img src="static/images/Lemon-Sugar-Pancakes.jpg"></img>
+    <img src="static/images/{{recipe._id}}.jpg"></img>
     </div>
 </div>
 {% endfor %}
 {% endblock %}
+

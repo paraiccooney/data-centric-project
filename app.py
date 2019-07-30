@@ -37,6 +37,13 @@ def saved_recipies():
 @app.route('/search_recipes')
 def search_recipes():
     return render_template("search.html")
+    
+@app.route('/upload_recipe_button', methods=['POST'])
+def upload_recipe_button():
+    recipies = mongo.db.recipes
+    recipies.insert_one(request.form.to_dict())
+    # redirect to my recipies page
+    return render_template("index.html",recipies=mongo.db.recipes.find())
 
 # runs the app (instance created above)
 if __name__ == '__main__':

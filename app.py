@@ -11,8 +11,8 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 
 # configuration
-app.config["MONGO_DBNAME"] = 'task_manager'
-app.config["MONGO_URI"] = 'mongodb+srv://paraiccooney:12345@myfirstcluster-4cfke.mongodb.net/task_manager?retryWrites=true&w=majority'
+app.config["MONGO_DBNAME"] = 'recipe_site'
+app.config["MONGO_URI"] = os.getenv("MONGOURI")
 
 # instance of PyMongo created
 mongo = PyMongo(app)
@@ -20,12 +20,23 @@ mongo = PyMongo(app)
 # / refers to the default route.
 @app.route('/')
 def my_recipes():
-    return render_template("index.html")
+    return render_template("index.html",recipies=mongo.db.recipes.find())
 
+# route for upload recipe
 @app.route('/upload_recipe')
 def upload_recipe():
-    return render_template("upload.html")
+    return render_template('upload.html',
+                           categories=mongo.db.recipe_categories.find())
 
+# route for random recipe
+@app.route('/saved_recipies')
+def saved_recipies():
+    return render_template("saved_recipies.html")
+    
+# route for search
+@app.route('/search_recipes')
+def search_recipes():
+    return render_template("search.html")
 
 # runs the app (instance created above)
 if __name__ == '__main__':

@@ -2,6 +2,17 @@
 .indie-flower {
     font-family: 'Indie Flower', cursive;
 }
+
+body {
+    background-image: url(https://image.freepik.com/free-photo/food-background-food-concept-with-various-tasty-fresh-ingredients-cooking-italian-food-ingredients-view-from_1220-1493.jpg);
+}
+
+.container {
+    background-image: url(https://www.polytec.com.au/img/products/960-960/white.jpg);
+    padding-left:2%;
+    padding-right:2%;
+}
+
 /* NAV STYLING */
 /* logo icon resized */
 #logo {
@@ -25,15 +36,20 @@
 }
 
 .page-footer {
-   padding-top:0px; 
+   padding-top:0px;
 }
 
 img {
     max-width: 100%;
 }
 
+/* removing white space above & below container */
 .page-heading {
-    margin-bottom:30px;
+    padding-top:30px;
+}
+.remove-white-space {
+    margin-bottom:0px;
+    padding-bottom:25px;
 }
 
 /* centre headings */
@@ -51,9 +67,21 @@ img {
     min-height: 15vh;
 }
 
-/* checkbox button display */
-[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-opacity: 1;
+/* limit checkbox div size */
+.checkboxes {
+    max-height: 25vh;
+    overflow: auto;
+    border: solid 2px #A9A9A9;
+}
+
+/* centre submit button */
+.submit-button {
+    text-align: center;
+}
+
+.upload-button{
+    height:10vh;
+    width:65vw;
 }
 
 /* placeholder text */

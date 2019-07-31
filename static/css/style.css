@@ -3,7 +3,7 @@
     font-family: 'Indie Flower', cursive;
 }
 
-body {
+body, .modal {
     background-image: url(https://image.freepik.com/free-photo/food-background-food-concept-with-various-tasty-fresh-ingredients-cooking-italian-food-ingredients-view-from_1220-1493.jpg);
 }
 

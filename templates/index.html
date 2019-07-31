@@ -1,63 +1,39 @@
-{% extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#welcomeModal").modal('show');
+    });
+  </script>
+</head>
 
-
-<!-- Username Modal -->
-<!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+<body class="modal-page">
+  <div id="welcomeModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Welcome</h4>
+        </div>
+        <div class="modal-body">
+          <p>Please enter your username:</p>
+          <form action="{{ url_for('my_recipes') }}" method="POST">
+            <div class="form-group">
+              <input class="form-control" type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <button class="btn btn-primary">Enter</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
+</body>
 
-
-<div class="page-heading indie-flower">
-  <h4>My Recipes</h4><hr>  
-</div>
-
-{% for recipe in recipies %}
-<div class="recipe-heading indie-flower">
-  <h5>{{recipe.recipe_name}}</h5>
-  <h7>author: {{recipe.author}}</h7>
-  <hr>  
-</div>
-<div class="row remove-white-space">
-    <div class="col s7">
-    <b>Ingredients:</b> {{recipe.ingredients}}<br>
-    <b>Instructions: </b>{{recipe.instructions}}<br>
-    <b>Serves: </b>{{recipe.serves}} <br>
-    <b>Difficulty: </b>
-    <!-- if statement for difficulty -->
-    {% if recipe.difficulty == "0" %}
-    <span>Very Easy</span>
-    {% elif recipe.difficulty == "25" %}
-    <span>Easy</span>
-    {% elif recipe.difficulty == "50" %}
-    <span>Moderate</span>
-    {% elif recipe.difficulty == "75" %}
-    <span>Difficult</span>
-    {% elif recipe.difficulty == "100" %}
-    <span>Very Difficult</span>
-    {% endif %}
-    </div>
-    <div class="col s5">
-    <img src="static/images/{{recipe._id}}.jpg"></img>
-    </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function(){
-    $('.modal').modal();
-  });
-</script>
-
-{% endfor %}
-{% endblock %}
+</html>                           

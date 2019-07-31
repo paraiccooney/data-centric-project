@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="page-heading indie-flower">
+  <h4>My Recipes</h4><hr> 
+  <h1>Welcome, {{ username }}</h1>
+</div>
+
+{% for recipe in recipies %}
+<div class="recipe-heading indie-flower">
+  <h5>{{recipe.recipe_name}}</h5>
+  <h7>author: {{recipe.author}}</h7>
+  <hr>  
+</div>
+<div class="row remove-white-space">
+    <div class="col s7">
+    <b>Ingredients:</b> {{recipe.ingredients}}<br>
+    <b>Instructions: </b>{{recipe.instructions}}<br>
+    <b>Serves: </b>{{recipe.serves}} <br>
+    <b>Difficulty: </b>
+    <!-- if statement for difficulty -->
+    {% if recipe.difficulty == "0" %}
+    <span>Very Easy</span>
+    {% elif recipe.difficulty == "25" %}
+    <span>Easy</span>
+    {% elif recipe.difficulty == "50" %}
+    <span>Moderate</span>
+    {% elif recipe.difficulty == "75" %}
+    <span>Difficult</span>
+    {% elif recipe.difficulty == "100" %}
+    <span>Very Difficult</span>
+    {% endif %}
+    </div>
+    <div class="col s5">
+    <img src="static/images/{{recipe._id}}.jpg"></img>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  function openModal(){
+    var instance = M.Modal.getInstance(elem);
+    instance.open();
+  }
+</script>
+<script>
+$('.modal').modal();
+  $(document).ready(function(){
+    console.log("page has loaded");
+    
+    openModal();
+  });
+</script>
+
+{% endfor %}
+{% endblock %}

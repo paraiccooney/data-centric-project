@@ -31,7 +31,7 @@ def my_recipes(username):
     username=username;
     return render_template("myrecipes.html",recipes=mongo.db.recipes.find(), username=username)"""
     
-####################################
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Main page with instructions"""
@@ -53,7 +53,7 @@ def my_recipes(username):
         return redirect(url_for("my_recipes", username=session["username"]))
 
     return render_template("myrecipes.html", username=username)
-####################################
+
 
 
 

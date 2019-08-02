@@ -31,27 +31,25 @@ def my_recipes(username):
     username=username;
     return render_template("myrecipes.html",recipes=mongo.db.recipes.find(), username=username)"""
     
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Main page with instructions"""
     if request.method == "POST":
+        print(request.form["username"])
         session["username"] = request.form["username"]
         
     # if username has been submitted then return the below page (url_for redirects to the function name as opposed to the @app.route)
     if "username" in session:
-        return redirect(url_for("my_recipes", username=session["username"]))
+        print(session)
+        return redirect(url_for("my_recipes"))
         
     # if username has not been submitted index.html will be rendered
     return render_template("index.html")
 
 
-@app.route("/recipes/<username>", methods=["GET", "POST"])
-def my_recipes(username):
-    if request.method == "POST":
-        username = session["username"]
-        return redirect(url_for("my_recipes", username=session["username"]))
-
+@app.route("/recipes", methods=["GET", "POST"])
+def my_recipes():
+    username = session["username"]
     return render_template("myrecipes.html", username=username)
 
 

@@ -69,22 +69,21 @@ img {
     margin-bottom: 35px;
 }
 
+/* UPLOAD FORM STYLING */
 /* instructions input size increase */
 #instructions {
-    min-height: 15vh;
+    min-height: 20vh;
 }
 
 /* limit checkbox div size */
-.checkboxes, .photo-upload {
+.checkboxes, .image-url {
     max-height: 25vh;
     overflow: auto;
     border: solid 2px #A9A9A9;
 }
 
-/* align file upload button border */
-.photo-upload {
-    padding-left:0px!important;
-    margin-left:0.75rem!important;
+.hidden-row {
+    display:none;
 }
 
 /* centre submit button */

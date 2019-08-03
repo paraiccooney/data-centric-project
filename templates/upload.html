@@ -2,7 +2,6 @@
 
 <div class="page-heading indie-flower">
     <h4>Upload A Recipe</h4>
-    <h1>Welcome, {{ username }}</h1>
     <hr>
 </div>
 <form action="{{ url_for('upload_recipe_button') }}" method="POST" class="col s12">
@@ -20,16 +19,17 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input name="instructions" id="ingredients" type="text" class="validate" required>
+            <input name="instructions" id="instructions" type="text" class="validate" required>
             <label for="instructions">Instructions (we recommend numbering your steps for legibility)</label>
         </div>
     </div>
     <div class="row">
+        <!-- difficulty slider -->
         <div class="col s6">
             <input oninput=getSliderText() type="range" id="difficulty" name="difficulty" step="25" value="50">
             <div align="center" style="font-size:25px;"><output name="amount" id="slider">Difficulty (Moderate)</output></div>
             <div class="input-field">
-                <input name="serves" id="serves" type="text" class="validate" required>
+                <input name="serves" id="serves" type="text" class="validate" required />
                 <label for="serves">Serves</label>
             </div>
         </div>
@@ -43,13 +43,21 @@
             <br> {% endfor %}
         </div>
     </div>
-    <!-- upload image functionality -->
+    <!-- image inclusion -->
     <div class="row">
-    <div class="col s6 photo-upload">
-            <input type="file" id="photo-file" name="photo-file" required/>
-            <label for="photo-file"> Select a photo to upload</label>
+        <div class="input-field col s12">
+            <input name="image_url" id="image-url" type="text" class="validate" required>
+            <label for="image-url">Please enter a valid image URL</label>
+        </div>
     </div>
+    <!-- hidden username field -->
+    <div class="row hidden-row">
+        <div class="input-field col s6">
+            <input name="author" id="author" type="text" class="validate" value= {{ username }} required>
+            
+        </div>
     </div>
+    <!-- upload button -->
     <div class="row remove-white-space">
         <div class="col s12 submit-button">
             <button class="btn waves-effect waves-light upload-button" type="submit">

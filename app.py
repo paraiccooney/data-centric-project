@@ -60,7 +60,7 @@ def my_recipes():
 def upload_recipe():
     username = session["username"]
     return render_template('upload.html',
-                           categories=mongo.db.recipe_categories.find())
+                           categories=mongo.db.recipe_categories.find(), username=username)
 
 # route for random recipe
 @app.route('/saved_recipes')
@@ -74,10 +74,11 @@ def search_recipes():
     
 @app.route('/upload_recipe_button', methods=['POST'])
 def upload_recipe_button():
+    username = session["username"]
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     # redirect to my recipes page
-    return render_template("index.html",recipes=mongo.db.recipes.find())
+    return redirect(url_for("my_recipes"))
 
 
 

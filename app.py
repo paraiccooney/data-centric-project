@@ -33,14 +33,13 @@ def my_recipes(username):
     
 @app.route("/", methods=["GET", "POST"])
 def index():
-    """Main page with instructions"""
+    
     if request.method == "POST":
         print(request.form["username"])
         session["username"] = request.form["username"]
         
-    # if username has been submitted then return the below page (url_for redirects to the function name as opposed to the @app.route)
+    # if username has been submitted then return the below page
     if "username" in session:
-        print(session)
         return redirect(url_for("my_recipes"))
         
     # if username has not been submitted index.html will be rendered
@@ -50,7 +49,8 @@ def index():
 @app.route("/recipes", methods=["GET", "POST"])
 def my_recipes():
     username = session["username"]
-    return render_template("myrecipes.html", username=username)
+    incrementer = 0
+    return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username, incrementer=incrementer)
 
 
 
@@ -58,6 +58,7 @@ def my_recipes():
 # route for upload recipe
 @app.route('/upload_recipe')
 def upload_recipe():
+    username = session["username"]
     return render_template('upload.html',
                            categories=mongo.db.recipe_categories.find())
 

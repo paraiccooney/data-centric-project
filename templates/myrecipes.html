@@ -1,55 +1,93 @@
-{% extends 'base.html'%}
-
-{% block content %}
+{% extends 'base.html'%} {% block content %}
 <div class="page-heading indie-flower">
-  <h4>My Recipes</h4><hr> 
-  <h1>Welcome, {{ username }}</h1>
+  <h4>Welcome back {{ username }}.</h4>
 </div>
+<h6>Here's your uploaded recipes. You can always check the recipes you've saved from other contributors by clicking the Bookmarked Recipes tab above. Alternatively why not explore & try something new using the Search tab?</h6>
 
-{% for recipe in recipies %}
-<div class="recipe-heading indie-flower">
-  <h5>{{recipe.recipe_name}}</h5>
-  <h7>author: {{recipe.author}}</h7>
-  <hr>  
-</div>
-<div class="row remove-white-space">
+{% for recipe in recipes %} {% if recipe.author == (username) %} {% set incrementer = (incrementer + 1) -%}
+
+<!-- the first result has to be rendered seperately with a container-fluid class as it's nested in the page's container div -->
+{% if incrementer == 1 %}
+<div class="container-fluid">
+  <div class="recipe-heading indie-flower">
+    <h5 class="recipe-heading">{{recipe.recipe_name}}</h5>
+    <h7>author: {{recipe.author}}</h7>
+    <hr>
+  </div>
+  <div class="row remove-white-space">
     <div class="col s7">
-    <b>Ingredients:</b> {{recipe.ingredients}}<br>
-    <b>Instructions: </b>{{recipe.instructions}}<br>
-    <b>Serves: </b>{{recipe.serves}} <br>
-    <b>Difficulty: </b>
-    <!-- if statement for difficulty -->
-    {% if recipe.difficulty == "0" %}
-    <span>Very Easy</span>
-    {% elif recipe.difficulty == "25" %}
-    <span>Easy</span>
-    {% elif recipe.difficulty == "50" %}
-    <span>Moderate</span>
-    {% elif recipe.difficulty == "75" %}
-    <span>Difficult</span>
-    {% elif recipe.difficulty == "100" %}
-    <span>Very Difficult</span>
-    {% endif %}
+      <b>Ingredients:</b> {{recipe.ingredients}}<br>
+      <b>Instructions: </b>{{recipe.instructions}}<br>
+      <b>Serves: </b>{{recipe.serves}} <br>
+      <b>Difficulty: </b>
+      <!-- if statement for difficulty -->
+      {% if recipe.difficulty == "0" %}
+        <span>Very Easy</span> {% elif recipe.difficulty == "25" %}
+        <span>Easy</span> {% elif recipe.difficulty == "50" %}
+        <span>Moderate</span> {% elif recipe.difficulty == "75" %}
+        <span>Difficult</span> {% elif recipe.difficulty == "100" %}
+        <span>Very Difficult</span> {% endif %}
     </div>
     <div class="col s5">
-    <img src="{{recipe.image_url}}"></img>
+      <img src="{{recipe.image_url}}"></img>
     </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  function openModal(){
-    var instance = M.Modal.getInstance(elem);
-    instance.open();
-  }
-</script>
-<script>
-$('.modal').modal();
-  $(document).ready(function(){
-    console.log("page has loaded");
-    
-    openModal();
-  });
-</script>
+    {% endif %}
 
-{% endfor %}
-{% endblock %}
+    <!-- additional results are rendered with a container class -->
+    {% if incrementer > 1 %}
+    <div class="container">
+      <div class="recipe-heading indie-flower">
+        <h5 class="recipe-heading">{{recipe.recipe_name}}</h5>
+        <h7>author: {{recipe.author}}</h7>
+        <hr>
+      </div>
+      <div class="row remove-white-space">
+        <div class="col s7">
+          <b>Ingredients:</b> {{recipe.ingredients}}<br>
+          <b>Instructions: </b>{{recipe.instructions}}<br>
+          <b>Serves: </b>{{recipe.serves}} <br>
+          <b>Difficulty: </b>
+          <!-- if statement for difficulty -->
+          {% if recipe.difficulty == "0" %}
+            <span>Very Easy</span> {% elif recipe.difficulty == "25" %}
+            <span>Easy</span> {% elif recipe.difficulty == "50" %}
+            <span>Moderate</span> {% elif recipe.difficulty == "75" %}
+            <span>Difficult</span> {% elif recipe.difficulty == "100" %}
+            <span>Very Difficult</span> {% endif %}
+        </div>
+        <div class="col s5">
+          <img src="{{recipe.image_url}}"></img>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      function openModal() {
+        var instance = M.Modal.getInstance(elem);
+        instance.open();
+      }
+    </script>
+    <script>
+      $('.modal').modal();
+      $(document).ready(function() {
+        console.log("page has loaded");
+
+        openModal();
+      });
+    </script>
+
+
+    {% endblock %}
+
+<!--
+{% if incrementer == 0  %}
+    <div class=row>
+      <div class="col s12">
+    <h6>Uh-oh! You don't appear to have uploaded any recipes.  <a href="{{ url_for('upload_recipe')}}">Why not upload some of your favourites?</a></h6>
+    </div>
+    </div>
+    {% endif %}
+-->

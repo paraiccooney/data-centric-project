@@ -39,8 +39,15 @@ body, .modal {
    padding-top:0px;
 }
 
+/* recipe div styling */
+
 img {
     max-width: 100%;
+}
+
+.recipe-heading {
+    margin-top: 0px;
+    padding-top:3%;
 }
 
 /* removing white space above & below container */

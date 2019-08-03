@@ -45,11 +45,6 @@ img {
     max-width: 100%;
 }
 
-.recipe-heading {
-    margin-top: 0px;
-    padding-top:3%;
-}
-
 /* removing white space above & below container */
 .page-heading {
     padding-top:30px;
@@ -66,7 +61,8 @@ img {
 
 /* recipe div margin */
 .recipe-heading {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
+    padding-top:3%;
 }
 
 /* UPLOAD FORM STYLING */
@@ -108,4 +104,21 @@ img {
 }
 :-moz-placeholder { /* Firefox 18- */
   font-weight: bold;
+}
+
+
+/* BOOKMARK BUTTON STYLING */
+.bookmark-button {
+    min-width: 4.5vw;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    min-height: 38px;
+    border-radius: 40%;
+}
+.bookmark-icon, .thumb-icon {
+    font-size: 25px!important;
+}
+.remove-margin-top {
+    margin-top: 0px;
 }

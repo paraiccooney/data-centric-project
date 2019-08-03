@@ -3,7 +3,7 @@
   <h4>Search</h4>
 </div>
 <form>
-    
+
 </form>
 {% for recipe in recipes %} 
 {% if recipe.author != (username) %} 
@@ -25,22 +25,22 @@
       <b>Difficulty: </b>
       <!-- if statement for difficulty -->
       {% if recipe.difficulty == "0" %}
-        <span>Very Easy</span> {% elif recipe.difficulty == "25" %}
-        <span>Easy</span> {% elif recipe.difficulty == "50" %}
-        <span>Moderate</span> {% elif recipe.difficulty == "75" %}
-        <span>Difficult</span> {% elif recipe.difficulty == "100" %}
-        <span>Very Difficult</span> {% endif %}
+      <span>Very Easy</span> {% elif recipe.difficulty == "25" %}
+      <span>Easy</span> {% elif recipe.difficulty == "50" %}
+      <span>Moderate</span> {% elif recipe.difficulty == "75" %}
+      <span>Difficult</span> {% elif recipe.difficulty == "100" %}
+      <span>Very Difficult</span> {% endif %}
     </div>
     <div class="col s5">
       <img src="{{recipe.image_url}}"></img>
       <div class="row">
         <div class="col s12">
-      <button class="btn waves-effect waves-light bookmark-button" type="submit">
+          <button class="btn waves-effect waves-light bookmark-button" type="submit">
             <i class="material-icons bookmark-icon">bookmark_border</i>
         </button>
-        <p class="remove-margin-top">Bookmark this recipe</p>
+          <p class="remove-margin-top">Bookmark this recipe</p>
         </div>
-        </div>
+      </div>
     </div>
     {% endif %}
 
@@ -60,35 +60,37 @@
           <b>Difficulty: </b>
           <!-- if statement for difficulty -->
           {% if recipe.difficulty == "0" %}
-            <span>Very Easy</span> {% elif recipe.difficulty == "25" %}
-            <span>Easy</span> {% elif recipe.difficulty == "50" %}
-            <span>Moderate</span> {% elif recipe.difficulty == "75" %}
-            <span>Difficult</span> {% elif recipe.difficulty == "100" %}
-            <span>Very Difficult</span> {% endif %}
+          <span>Very Easy</span> {% elif recipe.difficulty == "25" %}
+          <span>Easy</span> {% elif recipe.difficulty == "50" %}
+          <span>Moderate</span> {% elif recipe.difficulty == "75" %}
+          <span>Difficult</span> {% elif recipe.difficulty == "100" %}
+          <span>Very Difficult</span> {% endif %}
         </div>
         <div class="col s5">
           <img src="{{recipe.image_url}}"></img>
           <div class="row">
-        <div class="col s12">
-      <button class="btn waves-effect waves-light bookmark-button" type="submit">
-            <i class="material-icons bookmark-icon">bookmark_border</i>
-        </button>
-        <p class="remove-margin-top">Bookmark this recipe</p>
-        </div>
-        </div>
+            <div class="col s12">
+              <form action="{{ url_for('bookmark_recipe_button')}}" method="POST">
+                <button class="btn waves-effect waves-light bookmark-button" type="submit">
+                <i class="material-icons bookmark-icon">bookmark_border</i>
+                </button>
+                <p class="remove-margin-top">Bookmark this recipe</p>
+              </form>
+            </div>
+          </div>
         </div>
         {% endif %}
       </div>
     </div>
     {% endif %} {% endfor %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
       {
-       $('.bookmark-button').on( "click", function(){
-         $(this).html("<i class='material-icons thumb-icon'>thumb_up</i>")
-       }) 
+        $('.bookmark-button').on("click", function() {
+          $(this).parent().html("<button class='btn waves-effect waves-light bookmark-button' type='submit'><i class='material-icons thumb-icon'>thumb_up</i></button><p class='remove-margin-top'>Bookmarked!</p>")
+        })
       }
-</script>
+    </script>
 
     {% endblock %}

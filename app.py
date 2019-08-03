@@ -1,8 +1,6 @@
 import os
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_pymongo import PyMongo
-# Mongo stores it's data in BSON format which is similar to JSON. We use this is the '/edit_task route/<task_id>' route below
-# this allows us to convert our task id into bson format
 from bson.objectid import ObjectId 
 
 
@@ -49,8 +47,7 @@ def index():
 @app.route("/recipes", methods=["GET", "POST"])
 def my_recipes():
     username = session["username"]
-    incrementer = 0
-    return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username, incrementer=incrementer)
+    return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username)
 
 
 
@@ -62,15 +59,10 @@ def upload_recipe():
     return render_template('upload.html',
                            categories=mongo.db.recipe_categories.find(), username=username)
 
-# route for random recipe
+# route for bookmarked recipes
 @app.route('/saved_recipes')
 def saved_recipes():
     return render_template("saved_recipes.html")
-    
-# route for search
-@app.route('/search_recipes')
-def search_recipes():
-    return render_template("search.html")
     
 @app.route('/upload_recipe_button', methods=['POST'])
 def upload_recipe_button():
@@ -79,6 +71,25 @@ def upload_recipe_button():
     recipes.insert_one(request.form.to_dict())
     # redirect to my recipes page
     return redirect(url_for("my_recipes"))
+
+
+# route for search
+@app.route('/search_recipes')
+def search_recipes():
+    username = session["username"]
+    return render_template("search.html", recipes=mongo.db.recipes.find(), username=username)
+    
+
+# route for bookmarked
+@app.route('/bookmarked', methods=['POST'])
+def bookmark_recipe_button(recipe_id):
+    username = session["username"]
+    recipes = mongo.db.recipes
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        'bookmarkers': username
+    })
+
 
 
 

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Recipes</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
@@ -17,7 +18,7 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{ url_for('my_recipes')}}" class="brand-logo center"><i class="material-icons right" id="logo">spa</i></a>
+                <a href="{{ url_for('my_recipes')}}" class="brand-logo center"><i class="fas fa-utensils"></i></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down left-nav">
                     <li class="indie-flower"><a href="{{ url_for('my_recipes')}}">My Recipes <i class="material-icons right">face</i></a></li>

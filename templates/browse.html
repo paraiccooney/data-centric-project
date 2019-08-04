@@ -6,8 +6,27 @@
 </div>
 <br>
 <!-- Breakfast Carousel -->
-
 <h5 class="indie-flower carousel-heading">Breakfast</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes %} 
+{% if recipe.breakfast == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Brunch Carousel -->
+<h5 class="indie-flower carousel-heading">Brunch</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes %} 
+{% if recipe.brunch == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Lunch Carousel -->
+<h5 class="indie-flower carousel-heading">Lunch</h5>
 <div class="carousel carousel-container">
 {% for recipe in recipes %} 
 {% if recipe.lunch == "on" %}
@@ -15,7 +34,6 @@
 {% endif %}
 {% endfor %}
 </div>
-
 
 
 

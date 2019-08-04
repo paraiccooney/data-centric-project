@@ -43,7 +43,6 @@ body {
 }
 
 /* recipe div styling */
-
 img {
     max-width: 100%;
 }
@@ -58,14 +57,17 @@ img {
 }
 
 /* centre headings */
-.recipe-heading, .page-heading, .carousel-heading {
+.recipe-heading, .page-heading, .carousel-heading, .myRecipeHeading {
     text-align: center;
 }
 
 /* recipe div margin */
 .recipe-heading {
     margin-bottom: 15px;
-    padding-top:3%;
+}
+
+.myRecipeHeading {
+    margin-bottom: 0px;
 }
 
 /* Carousel styling */
@@ -127,7 +129,7 @@ img {
 
 
 /* BOOKMARK BUTTON STYLING */
-.bookmark-button {
+.bookmark-button, .written-button, .delete-button, .confirm-button {
     min-width: 4.5vw;
     padding-left: 0px;
     padding-right: 0px;
@@ -135,7 +137,7 @@ img {
     min-height: 38px;
     border-radius: 30%;
 }
-.bookmark-icon, .thumb-icon {
+.bookmark-icon, .written-icon, .thumb-icon, .question-icon {
     font-size: 25px!important;
 }
 .remove-margin-top {

@@ -35,7 +35,7 @@ def index():
 @app.route("/recipes", methods=["GET", "POST"])
 def my_recipes():
     username = session["username"]
-    return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username)
+    return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username, recipes2=mongo.db.recipes.find())
 
 
 

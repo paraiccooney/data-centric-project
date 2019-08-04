@@ -1,0 +1,28 @@
+{% extends 'base.html'%} {% block content %}
+
+<div class="page-heading indie-flower">
+    <h4>Browse Categories</h4>
+    <hr>
+</div>
+<h6>Breakfast</h6>
+
+<!-- Breakfast Carousel -->
+<div class="carousel">
+{% for recipe in recipes %} 
+{% if recipe.lunch == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe', argument=recipe.recipe_name)}}"><img src="{{recipe.image_url}}"><p>{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      {
+        $(document).ready(function(){
+    $('.carousel').carousel();
+  });
+      }
+    </script>
+{% endblock %}

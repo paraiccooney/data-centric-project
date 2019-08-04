@@ -7,8 +7,6 @@
 </form>
 {% for recipe in recipes %} 
 {% if recipe.author != (username) %} 
-{% set incrementer = (incrementer + 1) -%}
-
 
 <div class="container-fluid">
   <div class="recipe-heading indie-flower">
@@ -43,7 +41,7 @@
                 <!-- hidden id field -->
                 <div class="row ">
                   <div class="input-field col s6">
-                    <input name="id" id="id" type="text" class="validate" value={{recipe._id}} />
+                    <input name="recipe_id" id="recipe_id" type="text" class="validate" value={{recipe._id}} />
                   </div>
                 </div>
           </form>
@@ -63,4 +61,4 @@
       }
     </script>
 
-    {% endblock %}
+{% endblock %}

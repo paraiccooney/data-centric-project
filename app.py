@@ -15,19 +15,7 @@ app.config["MONGO_URI"] = os.getenv("MONGOURI")
 # instance of PyMongo created
 mongo = PyMongo(app)
 app.secret_key = "randomstring123"
-    
-"""    
-# / refers to the default route.
-@app.route('/')
-def welcome_page():
-    return render_template("index.html")
 
-
-#route for my recipes
-@app.route('/my_recipes', methods=["GET", "POST"])
-def my_recipes(username):
-    username=username;
-    return render_template("myrecipes.html",recipes=mongo.db.recipes.find(), username=username)"""
     
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -59,10 +47,15 @@ def upload_recipe():
     return render_template('upload.html',
                            categories=mongo.db.recipe_categories.find(), username=username)
 
-# route for bookmarked recipes
-@app.route('/saved_recipes')
-def saved_recipes():
-    return render_template("saved_recipes.html")
+# route for browse recipes
+@app.route('/browse_recipes')
+def browse_recipes():
+    return render_template("browse.html", recipes=mongo.db.recipes.find())
+    
+# route to display individual recipe when selected
+@app.route('/display_recipe')
+def display_recipe(argument):
+    return render_template("display_recipe.html", recipe=argument)
     
 @app.route('/upload_recipe_button', methods=['POST'])
 def upload_recipe_button():
@@ -82,13 +75,14 @@ def search_recipes():
 
 # route for bookmarked
 @app.route('/bookmarked', methods=['POST'])
-def bookmark_recipe_button(recipe_id):
+def bookmark_recipe_button():
+    recipe_id = request.form.get('recipe_id')
     username = session["username"]
     recipes = mongo.db.recipes
-    recipes.update( {'_id': ObjectId(recipe_id)},
-    {
-        'bookmarkers': username
-    })
+    mongo.db.recipes.update(
+        {'_id': ObjectId("5d40663d1c9d440000c0a680")},
+        {'bookmarkers': ('username')})
+    return redirect(url_for("search_recipes"))
 
 
 

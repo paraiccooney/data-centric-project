@@ -3,7 +3,7 @@
     font-family: 'Indie Flower', cursive;
 }
 
-body, .modal {
+body {
     background-image: url(https://image.freepik.com/free-photo/food-background-food-concept-with-various-tasty-fresh-ingredients-cooking-italian-food-ingredients-view-from_1220-1493.jpg);
 }
 
@@ -11,6 +11,7 @@ body, .modal {
     background-image: url(https://www.polytec.com.au/img/products/960-960/white.jpg);
     padding-left:2%;
     padding-right:2%;
+    min-height: 86vh;
 }
 
 /* NAV STYLING */
@@ -37,6 +38,7 @@ body, .modal {
 
 .page-footer {
    padding-top:0px;
+   min-height: 3vh;
 }
 
 /* recipe div styling */

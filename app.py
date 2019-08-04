@@ -54,8 +54,8 @@ def browse_recipes():
     
 # route to display individual recipe when selected
 @app.route('/display_recipe')
-def display_recipe(argument):
-    return render_template("display_recipe.html", recipe=argument)
+def display_recipe():
+    return render_template("display_recipe.html")
     
 @app.route('/upload_recipe_button', methods=['POST'])
 def upload_recipe_button():

@@ -3,6 +3,8 @@
   <h4>Welcome back {{ username }}. Here's your recipes.</h4><br>
 </div>
 
+
+<!-- Render Written Recipes -->
 <h5 class="indie-flower myRecipeHeading">Written</h5>
 {% for recipe in recipes %} 
 {% if recipe.author == (username) %}  
@@ -49,7 +51,7 @@
     
 {% endif %} {% endfor %}
 
-
+<!-- Render Bookmarked Recipes -->
 <h5 class="indie-flower myRecipeHeading">Bookmarked</h5>
 {% for recipe in recipes2 %} 
 {% if (username) in recipe.bookmarkers %}  
@@ -62,6 +64,9 @@
   </div>
   <div class="row remove-white-space recipe-container">
     <div class="col s7">
+      <button class="btn waves-effect waves-light bookmark-button orange" type="submit">
+          <i class="material-icons bookmark-icon">bookmark_border</i>
+      </button>
       <b>Ingredients:</b> {{recipe.ingredients}}<br>
       <b>Instructions: </b>{{recipe.instructions}}<br>
       <b>Serves: </b>{{recipe.serves}} <br>
@@ -73,6 +78,12 @@
         <span>Moderate</span> {% elif recipe.difficulty == "75" %}
         <span>Difficult</span> {% elif recipe.difficulty == "100" %}
         <span>Very Difficult</span> {% endif %}
+        <div>
+      <button class="btn waves-effect waves-light remove-bookmark-button red" type="submit">
+          <i class="fas fa-trash-alt"></i>
+      </button>
+      </div>
+      <br>
     </div>
     <div class="col s5">
       <img src="{{recipe.image_url}}"></img>
@@ -88,6 +99,9 @@
 // confirm delete has taken place
   $('.delete-button').on("click", function() {
     $(this).parent().html("<b><p class='remove-margin-top'>Deleted</p></b>")
+  })
+  $('.remove-bookmark-button').on("click", function() {
+    $(this).parent().html("<b><p class='remove-margin-top'>Removed</p></b>")
   })
 </script>
 

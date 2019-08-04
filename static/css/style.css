@@ -129,7 +129,7 @@ img {
 
 
 /* BOOKMARK BUTTON STYLING */
-.bookmark-button, .written-button, .delete-button, .confirm-button {
+.bookmark-button, .written-button, .delete-button, .remove-bookmark-button {
     min-width: 4.5vw;
     padding-left: 0px;
     padding-right: 0px;

@@ -18,7 +18,7 @@
 <!-- Brunch Carousel -->
 <h5 class="indie-flower carousel-heading">Brunch</h5>
 <div class="carousel carousel-container">
-{% for recipe in recipes %} 
+{% for recipe in recipes2 %} 
 {% if recipe.brunch == "on" %}
 <a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
@@ -28,14 +28,142 @@
 <!-- Lunch Carousel -->
 <h5 class="indie-flower carousel-heading">Lunch</h5>
 <div class="carousel carousel-container">
-{% for recipe in recipes %} 
+{% for recipe in recipes3 %} 
 {% if recipe.lunch == "on" %}
 <a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
 
+<!-- Dinner Carousel -->
+<h5 class="indie-flower carousel-heading">Dinner</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes4 %} 
+{% if recipe.dinner == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
 
+<!-- Light-Snack Carousel -->
+<h5 class="indie-flower carousel-heading">Light Snacks</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes5 %} 
+{% if recipe.light_snack == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Party-Food Carousel -->
+<h5 class="indie-flower carousel-heading">Party Food</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes6 %} 
+{% if recipe.party_food == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Sweet Carousel -->
+<h5 class="indie-flower carousel-heading">Sweet</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes7 %} 
+{% if recipe.sweet == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Saory Carousel -->
+<h5 class="indie-flower carousel-heading">Savory</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes8 %} 
+{% if recipe.savory == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Dessert Carousel -->
+<h5 class="indie-flower carousel-heading">Dessert</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes9 %} 
+{% if recipe.dessert == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Starter Carousel -->
+<h5 class="indie-flower carousel-heading">Starter</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes10 %} 
+{% if recipe.starter == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Baking Carousel -->
+<h5 class="indie-flower carousel-heading">Baking</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes11 %} 
+{% if recipe.baking == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Vegetarian Carousel -->
+<h5 class="indie-flower carousel-heading">Vegetarian</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes12 %} 
+{% if recipe.vegetarian == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Vegan Carousel -->
+<h5 class="indie-flower carousel-heading">Vegan</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes13 %} 
+{% if recipe.vegan == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Sugar Free Carousel -->
+<h5 class="indie-flower carousel-heading">Sugar Free</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes14 %} 
+{% if recipe.sugar_free == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Nut Free Carousel -->
+<h5 class="indie-flower carousel-heading">Nut Free</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes15 %} 
+{% if recipe.nut_free == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
+
+<!-- Pastry Carousel -->
+<h5 class="indie-flower carousel-heading">Pastry</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes16 %} 
+{% if recipe.pastry == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+{% endif %}
+{% endfor %}
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>

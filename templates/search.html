@@ -1,64 +1,35 @@
 {% extends 'base.html'%} {% block content %}
 <div class="page-heading indie-flower">
   <h4>Search</h4>
+  <hr>
 </div>
-<form>
 
-</form>
-{% for recipe in recipes %} 
-{% if recipe.author != (username) %} 
-
-<div class="container-fluid">
-  <div class="recipe-heading indie-flower">
-    <h5 class="recipe-heading">{{recipe.recipe_name}}</h5>
-    <h7>id: {{recipe._id}}</h7>
-    <h7>author: {{recipe.author}}</h7>
-    <hr>
+<form action="{{ url_for('search_recipes_button') }}" method="POST" class="col s12">
+  <div class="row">
+    <div class="input-field col s6">
+      <select name="search_param" id="search_param">
+      <option value="" disabled selected>Please select an option</option>
+      <option value="recipe_name">Recipe Name</option>
+      <option value="author">Author</option>
+      <option value="ingredients">Ingredient</option>
+    </select>
+      <label>Search by</label>
+    </div>
+    <div class="input-field col s6">
+      <input name="search_input" id="search_input" type="text" class="validate" required>
+      <label for="search_input">What/who are you searching for?</label>
+    </div>
   </div>
+  <!-- upload button -->
   <div class="row remove-white-space">
-    <div class="col s7">
-      <b>Ingredients:</b> {{recipe.ingredients}}<br>
-      <b>Instructions: </b>{{recipe.instructions}}<br>
-      <b>Serves: </b>{{recipe.serves}} <br>
-      <b>Difficulty: </b>
-      <!-- if statement for difficulty -->
-      {% if recipe.difficulty == "0" %}
-      <span>Very Easy</span> {% elif recipe.difficulty == "25" %}
-      <span>Easy</span> {% elif recipe.difficulty == "50" %}
-      <span>Moderate</span> {% elif recipe.difficulty == "75" %}
-      <span>Difficult</span> {% elif recipe.difficulty == "100" %}
-      <span>Very Difficult</span> {% endif %}
+    <div class="col s4"></div>
+    <div class="col s4 submit-button">
+      <button class="btn waves-effect waves-light search-button" type="submit">
+            <i class="material-icons right">file_upload</i>
+            Search
+        </button>
     </div>
-    <div class="col s5">
-      <img src="{{recipe.image_url}}"></img>
-      <div class="row">
-        <div class="col s12">
-          <form action="{{ url_for('bookmark_recipe_button')}}" method="POST">
-                <button class="btn waves-effect waves-light bookmark-button" type="submit" name= recipe._id>
-                <i class="material-icons bookmark-icon">bookmark_border</i>
-                </button>
-                <p class="remove-margin-top">Bookmark this recipe</p>
-                <!-- hidden id field -->
-                <div class="row ">
-                  <div class="input-field col s6">
-                    <input name="recipe_id" id="recipe_id" type="text" class="validate" value={{recipe._id}} />
-                  </div>
-                </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    </div>
-    {% endif %} {% endfor %}
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-      {
-        $('.bookmark-button').on("click", function() {
-          $(this).parent().html("<button class='btn waves-effect waves-light bookmark-button' type='submit' name='this-name'><i class='material-icons thumb-icon'>thumb_up</i></button><p class='remove-margin-top'>Bookmarked!</p>")
-        })
-      }
-    </script>
+  </div>
+</form>
 
 {% endblock %}

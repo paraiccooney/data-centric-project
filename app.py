@@ -31,32 +31,21 @@ def index():
     # if username has not been submitted index.html will be rendered
     return render_template("index.html")
 
-
+# MY RECIPES ROUTE
 @app.route("/recipes", methods=["GET", "POST"])
 def my_recipes():
     username = session["username"]
     return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username, recipes2=mongo.db.recipes.find())
 
 
-
-
-# route for upload recipe
+# UPLOAD RECIPES PAGE ROUTE
 @app.route('/upload_recipe')
 def upload_recipe():
     username = session["username"]
     return render_template('upload.html',
                            categories=mongo.db.recipe_categories.find(), username=username)
 
-# route for browse recipes
-@app.route('/browse_recipes')
-def browse_recipes():
-    return render_template("browse.html", recipes=mongo.db.recipes.find())
-    
-# route to display individual recipe when selected
-@app.route('/display_recipe')
-def display_recipe():
-    return render_template("display_recipe.html")
-    
+# UPLOAD RECIPE ROUTE    
 @app.route('/upload_recipe_button', methods=['POST'])
 def upload_recipe_button():
     username = session["username"]
@@ -64,16 +53,37 @@ def upload_recipe_button():
     recipes.insert_one(request.form.to_dict())
     # redirect to my recipes page
     return redirect(url_for("my_recipes"))
+    
+# SEARCH RESULTS ROUTE    
+@app.route('/search_recipes_button', methods=['POST'])
+def search_recipes_button():
+    username = session["username"]
+    recipes = mongo.db.recipes
+    search_param = request.form.get('search_param')
+    search_input = request.form.get('search_input')
+    if search_input in recipes.search_param.value:
+        return render_template("search_results.html", recipes=mongo.db.recipes.find({search_param: search_input}))
 
 
-# route for search
+# BROWSE RECIPES ROUTE
+@app.route('/browse_recipes')
+def browse_recipes():
+    return render_template("browse.html", recipes=mongo.db.recipes.find())
+    
+# DISPLAY RECIPE FROM CAROUSEL ROUTE
+@app.route('/display_recipe')
+def display_recipe():
+    return render_template("display_recipe.html")
+
+
+# SEARCH ROUTE
 @app.route('/search_recipes')
 def search_recipes():
     username = session["username"]
     return render_template("search.html", recipes=mongo.db.recipes.find(), username=username)
     
 
-# route for bookmarked
+# BOOKMARK-BUTTON ROUTE
 @app.route('/bookmarked', methods=['POST'])
 def bookmark_recipe_button():
     recipe_id = request.form.get('recipe_id')
@@ -83,8 +93,6 @@ def bookmark_recipe_button():
         {'_id': ObjectId("5d40663d1c9d440000c0a680")},
         {'bookmarkers': ('username')})
     return redirect(url_for("search_recipes"))
-
-
 
 
 # runs the app (instance created above)

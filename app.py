@@ -55,25 +55,29 @@ def upload_recipe_button():
     return redirect(url_for("my_recipes"))
     
 # SEARCH RESULTS ROUTE    
-@app.route('/search_recipes_button', methods=['POST'])
+@app.route('/search_recipes', methods=['POST'])
 def search_recipes_button():
     username = session["username"]
-    recipes = mongo.db.recipes
     search_param = request.form.get('search_param')
     search_input = request.form.get('search_input')
-    if search_input in recipes.search_param.value:
-        return render_template("search_results.html", recipes=mongo.db.recipes.find({search_param: search_input}))
+    recipes=mongo.db.recipes.find({search_param : {'$regex' : ".*"+search_input+".*"}})
+    return render_template("search_results.html", recipes=recipes)
 
 
 # BROWSE RECIPES ROUTE
 @app.route('/browse_recipes')
 def browse_recipes():
-    return render_template("browse.html", recipes=mongo.db.recipes.find())
-    
+    return render_template("browse.html", recipes=mongo.db.recipes.find(), recipes2=mongo.db.recipes.find(), recipes3=mongo.db.recipes.find(),
+    recipes4=mongo.db.recipes.find(), recipes5=mongo.db.recipes.find(), recipes6=mongo.db.recipes.find(), recipes7=mongo.db.recipes.find(),
+    recipes8=mongo.db.recipes.find(), recipes9=mongo.db.recipes.find(), recipes10=mongo.db.recipes.find(), recipes11=mongo.db.recipes.find(),
+    recipes12=mongo.db.recipes.find(), recipes13=mongo.db.recipes.find(), recipes14=mongo.db.recipes.find(), recipes15=mongo.db.recipes.find(),
+    recipes16=mongo.db.recipes.find(),recipes17=mongo.db.recipes.find())
+ 
+   
 # DISPLAY RECIPE FROM CAROUSEL ROUTE
-@app.route('/display_recipe')
-def display_recipe():
-    return render_template("display_recipe.html")
+@app.route('/display_recipe/<recipe_id>')
+def display_recipe(recipe_id):
+    return render_template("display_recipe.html", recipes=mongo.db.recipes.find())
 
 
 # SEARCH ROUTE
@@ -84,15 +88,14 @@ def search_recipes():
     
 
 # BOOKMARK-BUTTON ROUTE
-@app.route('/bookmarked', methods=['POST'])
-def bookmark_recipe_button():
-    recipe_id = request.form.get('recipe_id')
+@app.route('/bookmarked')
+def bookmark_recipe_button(recipe):
+    # recipe_id = request.form.get('recipe_id')
     username = session["username"]
     recipes = mongo.db.recipes
-    mongo.db.recipes.update(
-        {'_id': ObjectId("5d40663d1c9d440000c0a680")},
-        {'bookmarkers': ('username')})
-    return redirect(url_for("search_recipes"))
+    recipes.update({'_id' : ObjectId("5d40663d1c9d440000c0a680")},
+    {'$push' : { 'bookmarkers': ('username')}})
+    return render_template("display_recipe.html", recipes=mongo.db.recipes.find())
 
 
 # runs the app (instance created above)

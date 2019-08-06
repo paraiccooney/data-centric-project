@@ -10,7 +10,9 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes %} 
 {% if recipe.breakfast == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}">
+<p class="carousel-writing">{{recipe.recipe_name}}</p>
+</a>
 {% endif %}
 {% endfor %}
 </div>

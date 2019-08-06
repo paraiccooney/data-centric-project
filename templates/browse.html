@@ -22,7 +22,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes2 %} 
 {% if recipe.brunch == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -32,7 +32,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes3 %} 
 {% if recipe.lunch == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -42,7 +42,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes4 %} 
 {% if recipe.dinner == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -52,7 +52,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes5 %} 
 {% if recipe.light_snack == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -62,7 +62,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes6 %} 
 {% if recipe.party_food == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -72,7 +72,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes7 %} 
 {% if recipe.sweet == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -82,7 +82,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes8 %} 
 {% if recipe.savory == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -92,7 +92,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes9 %} 
 {% if recipe.dessert == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -102,7 +102,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes10 %} 
 {% if recipe.starter == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -112,7 +112,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes11 %} 
 {% if recipe.baking == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -122,7 +122,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes12 %} 
 {% if recipe.vegetarian == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -132,7 +132,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes13 %} 
 {% if recipe.vegan == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -142,7 +142,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes14 %} 
 {% if recipe.sugar_free == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -152,7 +152,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes15 %} 
 {% if recipe.nut_free == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>
@@ -162,7 +162,7 @@
 <div class="carousel carousel-container">
 {% for recipe in recipes16 %} 
 {% if recipe.pastry == "on" %}
-<a class="carousel-item" href="{{url_for('display_recipe')}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}"><p class="carousel-writing">{{recipe.recipe_name}}</p></a>
 {% endif %}
 {% endfor %}
 </div>

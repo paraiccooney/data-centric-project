@@ -77,7 +77,7 @@ def browse_recipes():
 # DISPLAY RECIPE FROM CAROUSEL ROUTE
 @app.route('/display_recipe/<recipe_id>')
 def display_recipe(recipe_id):
-    return render_template("display_recipe.html", recipes=mongo.db.recipes.find())
+    return render_template("display_recipe.html", recipe=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 
 # SEARCH ROUTE

@@ -1,8 +1,10 @@
 import os
+import random
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
+random_number=random.randrange(1,3)
 
 
 # instance of Flask created
@@ -19,7 +21,6 @@ app.secret_key = "randomstring123"
     
 @app.route("/", methods=["GET", "POST"])
 def index():
-    
     if request.method == "POST":
         print(request.form["username"])
         session["username"] = request.form["username"]
@@ -61,7 +62,8 @@ def search_recipes_button():
     search_param = request.form.get('search_param')
     search_input = request.form.get('search_input')
     recipes=mongo.db.recipes.find({search_param : {'$regex' : ".*"+search_input+".*"}})
-    return render_template("search_results.html", recipes=recipes)
+    promoted_recipes=mongo.db.recipes.find({'promoted_key' : 'random_number' })
+    return render_template("search_results.html", recipes=recipes, promoted_recipes=promoted_recipes)
 
 
 # BROWSE RECIPES ROUTE
@@ -71,7 +73,7 @@ def browse_recipes():
     recipes4=mongo.db.recipes.find(), recipes5=mongo.db.recipes.find(), recipes6=mongo.db.recipes.find(), recipes7=mongo.db.recipes.find(),
     recipes8=mongo.db.recipes.find(), recipes9=mongo.db.recipes.find(), recipes10=mongo.db.recipes.find(), recipes11=mongo.db.recipes.find(),
     recipes12=mongo.db.recipes.find(), recipes13=mongo.db.recipes.find(), recipes14=mongo.db.recipes.find(), recipes15=mongo.db.recipes.find(),
-    recipes16=mongo.db.recipes.find(),recipes17=mongo.db.recipes.find())
+    recipes16=mongo.db.recipes.find(),recipes17=mongo.db.recipes.find(),recipes18=mongo.db.recipes.find())
  
    
 # DISPLAY RECIPE FROM CAROUSEL ROUTE
@@ -88,13 +90,13 @@ def search_recipes():
     
 
 # BOOKMARK-BUTTON ROUTE
-@app.route('/bookmarked')
-def bookmark_recipe_button(recipe):
+@app.route('/bookmarked/<recipe_id>')
+def bookmark_recipe_button(recipe_id):
     # recipe_id = request.form.get('recipe_id')
     username = session["username"]
     recipes = mongo.db.recipes
     recipes.update({'_id' : ObjectId("5d40663d1c9d440000c0a680")},
-    {'$push' : { 'bookmarkers': ('username')}})
+    {'$push' : {'bookmarkers': ('username')}})
     return render_template("display_recipe.html", recipes=mongo.db.recipes.find())
 
 

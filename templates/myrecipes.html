@@ -5,7 +5,7 @@
 
 
 <!-- Render Written Recipes -->
-<h5 class="indie-flower myRecipeHeading">Written</h5>
+<h5 class="indie-flower myRecipeHeading">Written by you</h5>
 {% for recipe in recipes %} 
 {% if recipe.author == (username) %}  
 
@@ -33,13 +33,12 @@
       <span>Very Difficult</span>
       {% endif %}
       <br>
-      <div>
+      <form action="{{url_for('bookmark_recipe_button', recipe_id=recipe._id)}}" method="POST">
       <button class="btn waves-effect waves-light delete-button red" type="submit">
           <i class="fas fa-trash-alt"></i>
-      </button>
+      </form>
       </div>
       <br>
-    </div>
     <div class="col s5">
       <img src="{{recipe.image_url}}"></img>
     </div>
@@ -98,7 +97,7 @@
 <script>
 // confirm delete has taken place
   $('.delete-button').on("click", function() {
-    $(this).parent().html("<b><p class='remove-margin-top'>Deleted</p></b>")
+    $(this).parent().html("<b><p class='remove-margin-top'>Deleted</p></b>");
   })
   $('.remove-bookmark-button').on("click", function() {
     $(this).parent().html("<b><p class='remove-margin-top'>Removed</p></b>")

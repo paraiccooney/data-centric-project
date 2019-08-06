@@ -113,6 +113,10 @@ img {
     width:65vw;
 }
 
+.search-button{
+    height:10vh;
+}
+
 /* placeholder text */
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-weight: bold;

@@ -5,6 +5,20 @@
     <hr>
 </div>
 <br>
+
+<!-- Breakfast Carousel -->
+<h5 class="indie-flower carousel-heading">Promoted</h5>
+<div class="carousel carousel-container">
+{% for recipe in recipes18 %} 
+{% if recipe.promoted == "on" %}
+<a class="carousel-item" href="{{url_for('display_recipe', recipe_id=recipe._id)}}"><img src="{{recipe.image_url}}">
+<p class="carousel-writing">{{recipe.recipe_name}}</p>
+</a>
+{% endif %}
+{% endfor %}
+</div>
+
+
 <!-- Breakfast Carousel -->
 <h5 class="indie-flower carousel-heading">Breakfast</h5>
 <div class="carousel carousel-container">

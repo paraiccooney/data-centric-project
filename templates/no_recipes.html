@@ -1,0 +1,13 @@
+{% extends 'base.html'%} {% block content %}
+<br>
+<div class="container-fluid center">
+    <h5 class="indie-flower myRecipeHeading remove-margin-top">No authored recipes</h5>
+    <p>Why not <a href="{{ url_for('upload_recipe')}}">upload a recipe?</a></p>
+</div>
+<br>
+<div class="container-fluid center">
+    <h5 class="indie-flower myRecipeHeading remove-margin-top">No bookmarks</h5>
+    <p>Why not <a href="{{ url_for('browse_recipes')}}">browse new recipes?</a></p>
+</div>
+
+{% endblock %}

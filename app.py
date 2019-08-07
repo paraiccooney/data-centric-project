@@ -35,8 +35,30 @@ def index():
 # MY RECIPES ROUTE
 @app.route("/recipes", methods=["GET", "POST"])
 def my_recipes():
+    recipes=mongo.db.recipes
     username = session["username"]
-    return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username, recipes2=mongo.db.recipes.find())
+    bookmark_user = username+'_bookmarked'
+    authored=list(mongo.db.recipes.find({'author' : username }))
+    bookmark_variable = mongo.db.recipes.find()
+    bookmarked=list(bookmark_variable)
+    bookmarkedString=str(bookmarked)
+    bookmarks = bookmark_user in  bookmarkedString
+    
+    # if statement to display page based on present of authored & bookmarked recipes
+    # if there's no authored or bookmarked recipes
+    if authored and bookmarks: 
+        return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, recipes2=mongo.db.recipes.find())
+    
+    # if there's authored but no bookmarked
+    elif authored:
+        return render_template("no_bookmarks.html", recipes=recipes.find({'author': username}), username=username)
+    
+    # if there's bookmarked but no authored
+    elif bookmarks:
+        return render_template("no_authored.html", recipes=recipes.find(), username=username)
+    
+    else:
+        return render_template("no_recipes.html", username=username)
 
 
 # UPLOAD RECIPES PAGE ROUTE

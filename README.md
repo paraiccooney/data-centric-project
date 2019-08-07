@@ -105,6 +105,14 @@ In order to apply multiple Jinja for loops I had to pass the same data into the 
 return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username, recipes2=mongo.db.recipes.find())
 This is also evident in the /browse_recipes route.
 
+A manual test was run to ensure that the correct pages were rendering based on the presence of recipes written by the user or bookmarks for the
+user.  There are four paths that may be taken (note all usernames used in testing were appropriate at the time of testing);
+1. Both authored recipes & bookmarks present for user.  This was tested by logging in using username 'paraiccooney' & successfully rendered 'myrecipes.html'.
+2. Authored recipes present but no bookmarks for user.  This was tested by logging in using username 'Bord Bia' & successfully rendered 'no_bookmarks.html'.
+3. Bookmarks present but no authored recipes for user.  This was tested by logging in using username 'Paul Simon' & successfully rendered 'no_authored.html'.
+4. No bookmarks or authored recipes by user.  This was tested by logging in using username 'Michael Harris' & successfully rendered 'no_recipes.html'.
+
+
 Finally ran my Javascript code through JS Hint (https://jshint.com/) to flag any potential bugs. None were returned.
 
 ## Deployment

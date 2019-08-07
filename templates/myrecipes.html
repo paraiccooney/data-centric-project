@@ -32,10 +32,10 @@
       <span>Very Difficult</span>
       {% endif %}
       <br>
-      <form action="{{url_for('bookmark_recipe_button', recipe_id=recipe._id)}}" method="POST">
+      <a href="{{url_for('delete_recipe_button', recipe_id=recipe._id)}}">
       <button class="btn waves-effect waves-light delete-button red" type="submit">
-          <i class="fas fa-trash-alt"></i>
-      </form>
+          <i class="fas fa-trash-alt delete-icon"></i>
+      </a>
       </div>
       <br>
     <div class="col s5">
@@ -76,10 +76,11 @@
         <span>Moderate</span> {% elif recipe.difficulty == "75" %}
         <span>Difficult</span> {% elif recipe.difficulty == "100" %}
         <span>Very Difficult</span> {% endif %}
-        <div>
-      <button class="btn waves-effect waves-light remove-bookmark-button red" type="submit">
-          <i class="fas fa-trash-alt"></i>
-      </button>
+      <div>
+        <a href="#">
+      <button class="btn waves-effect waves-light delete-button red" type="submit">
+          <i class="fas fa-trash-alt delete-icon"></i>
+      </a>
       </div>
       <br>
     </div>

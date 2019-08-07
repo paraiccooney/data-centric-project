@@ -11,7 +11,7 @@ body {
     background-image: url(https://www.polytec.com.au/img/products/960-960/white.jpg);
     padding-left:2%;
     padding-right:2%;
-    min-height: 86vh;
+    min-height: 93vh;
 }
 
 
@@ -77,6 +77,13 @@ img {
 .carousel-container, .recipe-container {
     background-image: url(https://images.homedepot-static.com/productImages/6bb80387-f33b-4a2d-a728-e78986ef0b39/svn/wallpaper-2758-8023sam-64_600.jpg);
 }
+
+.recipe-container {
+    max-width: 100%;
+    margin-right:0px!important;
+    margin-left:4px!important;
+}
+
 .carousel-writing {
     text-decoration: none;
     color: black;
@@ -132,7 +139,7 @@ img {
 }
 
 
-/* BOOKMARK BUTTON STYLING */
+/* BOOKMARK/DELETE BUTTON STYLING */
 .bookmark-button, .written-button, .delete-button, .remove-bookmark-button {
     min-width: 4.5vw;
     padding-left: 0px;
@@ -141,6 +148,10 @@ img {
     min-height: 38px;
     border-radius: 30%;
 }
+.delete-icon {
+    color:white;
+}
+
 .bookmark-icon, .written-icon, .thumb-icon, .question-icon {
     font-size: 25px!important;
 }

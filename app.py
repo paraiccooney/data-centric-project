@@ -4,7 +4,6 @@ from flask import Flask, redirect, render_template, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
-random_number=random.randrange(1,3)
 
 
 # instance of Flask created
@@ -81,10 +80,12 @@ def upload_recipe_button():
 @app.route('/search_recipes', methods=['POST'])
 def search_recipes_button():
     username = session["username"]
+    #number must be a string to be passed into database
+    random_number=str(random.randrange(1,6))
     search_param = request.form.get('search_param')
     search_input = request.form.get('search_input')
     recipes=mongo.db.recipes.find({search_param : {'$regex' : ".*"+search_input+".*"}})
-    promoted_recipes=mongo.db.recipes.find({'promoted_key' : 'random_number' })
+    promoted_recipes=mongo.db.recipes.find({'promoted_key' : random_number })
     return render_template("search_results.html", recipes=recipes, promoted_recipes=promoted_recipes)
 
 
@@ -120,6 +121,15 @@ def bookmark_recipe_button(recipe_id):
     recipes.update({'_id' : ObjectId("5d40663d1c9d440000c0a680")},
     {'$push' : {'bookmarkers': ('username')}})
     return render_template("display_recipe.html", recipes=mongo.db.recipes.find())
+    
+    
+# DELETE-BUTTON ROUTE
+@app.route('/deleted/<recipe_id>')
+def delete_recipe_button(recipe_id):
+    username = session["username"]
+    recipes = mongo.db.recipes
+    recipes.remove({'_id': ObjectId(recipe_id)})
+    return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, recipes2=mongo.db.recipes.find())
 
 
 # runs the app (instance created above)

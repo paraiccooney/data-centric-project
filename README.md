@@ -6,6 +6,14 @@ allows users to upload & save their own recipes while also searching & browsing 
 The site also serves the purpose of allowing the administator to attract revenue, either through promotion of their own recipes, through the inclusion
 of product placement, or through a pay for promotion service where individuals pay a fee to have their recipes promoted.
 
+## Notice for the administator
+Currently this site is designed for five promoted recipes.  To display a recipe in the promoted carousel on the Browse page give the recipe the field
+of "promoted" in the Mongo database & a value of "on" ("promoted":"on").  Should this be applied to more than five recipes it will not break the code
+& all recipes will display in the carousel.
+To enable a promoted recipe to be displayed on the Search Results page the recipe must be given a field of "promoted_key" & unique value between
+one & five ("promoted_key":"3").  If you wish to add more promoted recipes change the range of the random number generator (line 84 of the app.py 
+file) & assign corresponding unique values to the promoted recipes (eg "promoted_key":"8" , "promoted_key":"12", etc).
+
 ## Demo
 TO BE COMPLETED
 

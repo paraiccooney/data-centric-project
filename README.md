@@ -1,10 +1,3 @@
-Startup modal credits - https://www.tutorialrepublic.com/faq/how-to-launch-bootstrap-modal-on-page-load.php
-
-interesting bug - to apply two for loops with the recipes dataset on the myrecipes page I had to pass the same data into the render_template 
-twice as Jinja only allows an argument to be used once;
-return render_template("myrecipes.html", recipes=mongo.db.recipes.find(), username=username, recipes2=mongo.db.recipes.find())
-This is also evident in the /browse_recipes route.
-
 # Data Driven Recipe Site
 This is an interactive website with both front-end & back-end functionality.  It constitutes the third of my four projects which form the assessment 
 basis of my Full-Stack Web Development course with The Code Institute.
@@ -126,4 +119,20 @@ git clone (ENTER GITHUB URL)
 To cut ties with this repository use the following command;
 git remote rm origin
 
+## Credits
+### Content
+The intial content of this site was taken from multiple online sources;
+https://www.bbcgoodfood.com
+https://www.bordbia.ie
+https://www.goodfoodireland.ie
+https://hurrythefoodup.com
 
+### Media
+All media was taken from the corresponing recipes on the above sites or through a Google image search.
+
+## Acknowledgements
+The Code Institute community on Slack, my project mentor Aaron Sinnott, & the online tutor support were of great assistance in building this project. 
+
+Stack Overflow was of great use & many contributors had answered questions similar to those I held at separate points throughout the project.
+
+Startup modal credits - https://www.tutorialrepublic.com/faq/how-to-launch-bootstrap-modal-on-page-load.php

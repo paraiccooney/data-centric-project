@@ -118,9 +118,9 @@ def bookmark_recipe_button(recipe_id):
     # recipe_id = request.form.get('recipe_id')
     username = session["username"]
     recipes = mongo.db.recipes
-    recipes.update({'_id' : ObjectId("5d40663d1c9d440000c0a680")},
-    {'$push' : {'bookmarkers': ('username')}})
-    return render_template("display_recipe.html", recipes=mongo.db.recipes.find())
+    recipes.update({'_id' : 'ObjectId("5d45c1d09b72a62e2db12299")'},
+    {'$push' : {'bookmarkers': 'testing_bookmarked'}})
+    return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, recipes2=recipes.find())
     
     
 # DELETE-BUTTON ROUTE
@@ -129,7 +129,7 @@ def delete_recipe_button(recipe_id):
     username = session["username"]
     recipes = mongo.db.recipes
     recipes.remove({'_id': ObjectId(recipe_id)})
-    return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, recipes2=mongo.db.recipes.find())
+    return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, recipes2=recipes.find())
 
 
 # runs the app (instance created above)

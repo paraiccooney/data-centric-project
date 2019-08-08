@@ -140,14 +140,15 @@ Finally all Javascript code was run through JS Hint (https://jshint.com/) to fla
 for bugs using https://pythonbuddy.com/
 
 ## Deployment
-This application is hosted & deployed using Herouku & is located at (INPUT URL). 
+This application is hosted & deployed using Herouku & is located at ( https://paraic-cooney-recipe-app.herokuapp.com/ ). 
 The application will update automatically with new commits as the master origin has been updated to Heroku.
+
+In order to run this application locally you can clone this repository directly into your personal editor using the following command;
+git clone (https://git.heroku.com/paraic-cooney-recipe-app.git)
 In order for this application to be deployed correctly the landing page must be named index.html.  All html pages which are to be rendered also must be kept
 in a folder named 'templates' which is to be located in a folder labeled 'static'.  These requirements arise from the use of the Jinja templating
 language.
 
-In order to run this application locally you can clone this repository directly into your personal editor using the following command;
-git clone (ENTER GITHUB URL)
 To cut ties with this repository use the following command;
 git remote rm origin
 

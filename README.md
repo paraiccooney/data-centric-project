@@ -1,30 +1,29 @@
-# Data Driven Recipe Site
-This is an interactive website with both front-end & back-end functionality.  It constitutes the third of my four projects which form the assessment 
+# Data Driven Recipe Application
+This is an interactive web application with both front-end & back-end functionality.  It constitutes the third of my four projects which form the assessment 
 basis of my Full-Stack Web Development course with The Code Institute.
-The purpose of this project is to allow users to interact with a back-end database of recipes using an appealing & intuative front-end.  The site 
+The purpose of this project is to allow users to interact with a back-end database of recipes using an appealing & intuative front-end.  The application
 allows users to upload & save their own recipes while also searching & browsing recipes submitted by others & bookmarking them for later recall.
-The site also serves the purpose of allowing the administator to attract revenue, either through promotion of their own recipes, through the inclusion
+The applicationalso serves the purpose of allowing the administator to attract revenue, either through promotion of their own recipes, through the inclusion
 of product placement, or through a pay for promotion service where individuals pay a fee to have their recipes promoted.
 
 ## Notice to the administator
-Currently this site is designed for five promoted recipes.  To display a recipe in the promoted carousel on the Browse page give the recipe the field
+Currently this applicationis designed for five promoted recipes.  To display a recipe in the promoted carousel on the Browse page give the recipe the field
 of "promoted" in the Mongo database & a value of "on" ("promoted":"on").  Should this be applied to more than five recipes it will not break the code
 & all recipes will display in the carousel.
 To enable a promoted recipe to be displayed on the Search Results page the recipe must be given a field of "promoted_key" & unique value between
 one & five ("promoted_key":"3").  If you wish to add more promoted recipes change the range of the random number generator (line 84 of the app.py 
 file) & assign corresponding unique values to the promoted recipes (eg "promoted_key":"8" , "promoted_key":"12", etc).
 
-## Demo
-TO BE COMPLETED
-
 ## UX
 The design goal of this project was to make the front-end as appealing & intuatively interactive as possible while also providing a warm colourful 
 display which serves to stimulate the users senses.  An orange theme was choosen along with a visually rich backround image of fresh ingredients along
 with a linen background image to add a rustic feel.
 
-For the site administator I also wanted to be able to give them the ability to integrate promoted recipes (which serve as the revenue stream for the site)
-without taking away from the user-generated feel & rendering the site overly-commercial.  To do so I incorporated a promoted recipe carousel in the 
+For the application administator I also wanted to be able to give them the ability to integrate promoted recipes (which serve as the revenue stream for the application)
+without taking away from the user-generated feel & rendering the application overly-commercial.  To do so I incorporated a promoted recipe carousel in the 
 browse section & also included a random promoted recipe underneath any search results.
+
+The application was also design using a mobile-first approach to ensure respinsive design & assist in search enginge optimisation.
 
 ## Technologies Used
 1. HTML
@@ -40,7 +39,7 @@ browse section & also included a random promoted recipe underneath any search re
 
 ## Features
 **Feature 1 - Recipe Page**
-The My Recipes page (which can be accessed from the button in the nav of the same name or by clicking the site logo in the center of the nav) utilises
+The My Recipes page (which can be accessed from the button in the nav of the same name or by clicking the application logo in the center of the nav) utilises
 the jinja templating language to loop through & render each recipe written by the user.  It does so by passing in all recipes as an argument when
 rendering the url & then, through use of a jinja if statement rendering only those recipes who's author matches that of the username entered at the 
 start of the session.
@@ -51,10 +50,10 @@ matching the username.
 The Browse functionality can be accessed via the Browse tab.  It displays a number of carousels consisting of thumbnail images & recipe names. Upon
 click the individual recipe is rendered on a separate tab.  The purpose of this section is to allow the user to browse many recipes visually & by
 category in order to quickly process & narrow many recipes (as opposed to a list detailing all recipes or recipes details).
-At the top of the Browse page is the promoted carousel which is to be utilised by the site administator as outlined above in the UX section.
+At the top of the Browse page is the promoted carousel which is to be utilised by the application administator as outlined above in the UX section.
 
 **Feature 3 - Upload Recipe Functionality**
-As this site is to be comprised primarily of user generated content it was imperative that the user be given the ability to upload their own recipes.
+As this application is to be comprised primarily of user generated content it was imperative that the user be given the ability to upload their own recipes.
 To achieve this a form has been created on the Upload Recipe page.  The form was designed to incorporate not only textboxes but also checkboxes &
 a slider to give some variety to the user.  The author name field is populated automatically.
 
@@ -85,10 +84,23 @@ I would like to give the user the ability to upload a photo file locally as oppo
 I would like to impliment either a comment section or ratings system to allow other users to provide feedback on recipes.  Once this is implimented
 I would then include it as a search parameter.
 
-## Testing
-### Automated Testing Impliment Jasmine Testing
+## Data Structure
+The back end of this application interacts with two MongoDB collections - categories & recipes.
 
-### Manual Testing
+#### Categories
+![Categories screenshot](https://i.imgur.com/bvAXjTR.jpg)
+The categories collection is comprised of sixteen entries.  At the front-end this collection controls the carousels on the Browse page & the
+checkboxes available for selection on the Upload page.
+
+#### Recipes
+![Categories screenshot](https://i.imgur.com/NE12Gr3.jpg)
+The recipes collection is comprised of many fields which are not present for each recipe instance.  The majority of the fields shown in the above
+will be present in every entry due to the fact that they are require or automatically populated during the upload phase.  Certain instances of
+recipes may have additional entries for the sixteen previously mentioned categories, & may or may not contain the bookermarks & promoted/promoted_key
+fields.
+
+## Testing
+
 All links have been manually tested to ensure that they are pointing to the correct destination.
 
 All buttons (add/remove bookmark, delete authored recipe, upload, & search) have all been tested manually.  All have been testing by cross-referencing
@@ -98,7 +110,7 @@ the back end database & manually confirming that;
 - That the recipe selected for deletion has been removed from the database.
 - That the recipe uploaded has been added to the database with all selected fields & information included.
 
-This site was tested across multiple browsers (Chrome, Safari, Internet Explorer, FireFox) and on multiple mobile devices to ensure compatibility 
+This application was tested across multiple browsers (Chrome, Safari, Internet Explorer, FireFox) and on multiple mobile devices to ensure compatibility 
 and responsiveness.  This was done using Chrome's devloper tools & also an online resource (https://responsivedesignchecker.com/).
 The collapsable navbar was also test at this stage.
 
@@ -126,20 +138,20 @@ Finally all Javascript code was run through JS Hint (https://jshint.com/) to fla
 for bugs using https://pythonbuddy.com/
 
 ## Deployment
-This site is hosted & deployed using Herouku & is located at (INPUT URL). 
-The site will update automatically with new commits as the master origin has been updated to Heroku.
-In order for this site to be deployed correctly the landing page must be named index.html.  All html pages which are to be rendered also must be kept
+This application is hosted & deployed using Herouku & is located at (INPUT URL). 
+The application will update automatically with new commits as the master origin has been updated to Heroku.
+In order for this application to be deployed correctly the landing page must be named index.html.  All html pages which are to be rendered also must be kept
 in a folder named 'templates' which is to be located in a folder labeled 'static'.  These requirements arise from the use of the Jinja templating
 language.
 
-In order to run this site locally you can clone this repository directly into your personal editor using the following command;
+In order to run this application locally you can clone this repository directly into your personal editor using the following command;
 git clone (ENTER GITHUB URL)
 To cut ties with this repository use the following command;
 git remote rm origin
 
 ## Credits
 ### Content
-The intial content of this site was taken from multiple online sources;
+The intial content of this application was taken from multiple online sources;
 https://www.bbcgoodfood.com
 https://www.bordbia.ie
 https://www.goodfoodireland.ie

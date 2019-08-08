@@ -87,13 +87,13 @@ I would then include it as a search parameter.
 ## Data Structure
 The back end of this application interacts with two MongoDB collections - categories & recipes.
 
-#### Categories
+### Categories
 ![Categories screenshot](https://i.imgur.com/bvAXjTR.jpg)
 
 The categories collection is comprised of sixteen entries.  At the front-end this collection controls the carousels on the Browse page & the
 checkboxes available for selection on the Upload page.
 
-#### Recipes
+### Recipes
 ![Categories screenshot](https://i.imgur.com/NE12Gr3.jpg)
 
 The recipes collection is comprised of many fields which are not present for each recipe instance.  The majority of the fields shown in the above
@@ -155,8 +155,11 @@ git remote rm origin
 ### Content
 The intial content of this application was taken from multiple online sources;
 https://www.bbcgoodfood.com
+
 https://www.bordbia.ie
+
 https://www.goodfoodireland.ie
+
 https://hurrythefoodup.com
 
 ### Media

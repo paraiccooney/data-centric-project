@@ -8,8 +8,7 @@
   <div class="row">
     <div class="input-field col s6">
       <select name="search_param" id="search_param">
-      <option value="" disabled selected>Please select an option</option>
-      <option value="recipe_name">Recipe Name</option>
+      <option value="recipe_name" selected>Recipe Name</option>
       <option value="author">Author</option>
       <option value="ingredients">Ingredient</option>
     </select>
@@ -17,15 +16,15 @@
     </div>
     <div class="input-field col s6">
       <input name="search_input" id="search_input" type="text" class="validate" required>
-      <label for="search_input">What/who are you searching for?</label>
+      <label for="search_input">Search for</label>
     </div>
   </div>
   <!-- upload button -->
   <div class="row remove-white-space">
-    <div class="col s4"></div>
-    <div class="col s4 submit-button">
+    <div class="col s2"></div>
+    <div class="col s8 submit-button">
       <button class="btn waves-effect waves-light search-button" type="submit">
-            <i class="material-icons right">file_upload</i>
+            <i class="material-icons right">search</i>
             Search
         </button>
     </div>

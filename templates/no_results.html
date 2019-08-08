@@ -37,7 +37,7 @@
       <span>Difficult</span> {% elif recipe.difficulty == "100" %}
       <span>Very Difficult</span> {% endif %}
       <div>
-      <a href="{{url_for('bookmark_recipe_button', recipe_id=recipe._id)}}">
+      <a href="{{url_for('bookmark_recipe_button', recipe_name=recipe.recipe_name)}}">
       <button action="{{url_for('bookmark_recipe_button', recipe_id=recipe._id)}}" class="btn waves-effect waves-light bookmark-button" type="submit">
           <i class="material-icons bookmark-icon">bookmark_border</i>
       </button>

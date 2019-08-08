@@ -3,10 +3,9 @@
   <h4>Welcome back {{ username }}. Here's your recipes.</h4><br>
 </div>
 
-
 <!-- Render Written Recipes -->
 <h5 class="indie-flower myRecipeHeading">Written by you</h5>
-{% for recipe in recipes %} 
+{% for recipe in authored %} 
 
 <div class="container-fluid">
   <div class="recipe-heading indie-flower">
@@ -52,7 +51,7 @@
 <!-- Render Bookmarked Recipes -->
 <h5 class="indie-flower myRecipeHeading">Bookmarked</h5>
 {% for recipe in recipes2 %} 
-{% if (username) in recipe.bookmarkers %}  
+{% if (bookmark_tag) in recipe %}  
 
 <div class="container-fluid">
   <div class="recipe-heading indie-flower">
@@ -77,7 +76,7 @@
         <span>Difficult</span> {% elif recipe.difficulty == "100" %}
         <span>Very Difficult</span> {% endif %}
       <div>
-        <a href="#">
+        <a href="{{url_for('remove_bookmark_button', recipe_name=recipe.recipe_name)}}">
       <button class="btn waves-effect waves-light delete-button red" type="submit">
           <i class="fas fa-trash-alt delete-icon"></i>
       </a>

@@ -114,18 +114,39 @@ def search_recipes():
     username = session["username"]
     return render_template("search.html", recipes=mongo.db.recipes.find(), username=username)
     
-
+"""
 # BOOKMARK-BUTTON ROUTE
 @app.route('/bookmarked/<recipe_id>')
 def bookmark_recipe_button(recipe_id):
-    # recipe_id = request.form.get('recipe_id')
     username = session["username"]
     recipes = mongo.db.recipes
-    recipes.update({'_id' : 'ObjectId("5d45c1d09b72a62e2db12299")'},
-    {'$push' : {'bookmarkers': 'testing_bookmarked'}})
-    return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, recipes2=recipes.find())
+    recipe = recipes.find_one({"_id": "5d45c1d09b72a62e2db12299"})
+    mongo.db.recipes.update_one({'_id': ObjectId(recipe_id)}, {'$push': {'bookmarkers': ['save-deleted']}})
     
+    return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, recipes2=mongo.db.recipes.find()) """
+# BOOKMARK BUTTON ROUTE
+@app.route('/bookmarked/<recipe_name>')
+def bookmark_recipe_button(recipe_name):
+    username=session["username"]
+    bookmark_tag= username+"-bookmark"
+    recipes = mongo.db.recipes
+    recipe = recipes.update({"recipe_name": recipe_name}, {'$set': {bookmark_tag: "on"}})
     
+    return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, 
+    recipes2=mongo.db.recipes.find(), bookmark_tag=bookmark_tag) 
+    
+# REMOVE BOOKMARK ROUTE
+@app.route('/bookmarked/<recipe_name>')
+def remove_bookmark_button(recipe_name):
+    username=session["username"]
+    bookmark_tag= username+"-bookmark"
+    recipes = mongo.db.recipes
+    recipe = recipes.update({"recipe_name": recipe_name}, {'$unset': {bookmark_tag}})
+    
+    return render_template("myrecipes.html", recipes=recipes.find({'author': username}), username=username, 
+    recipes2=mongo.db.recipes.find(), bookmark_tag=bookmark_tag)   
+
+
 # DELETE-BUTTON ROUTE
 @app.route('/deleted/<recipe_id>')
 def delete_recipe_button(recipe_id):

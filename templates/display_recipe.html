@@ -9,9 +9,6 @@
   </div>
   <div class="row remove-white-space recipe-container">
     <div class="col s7">
-      <button class="btn waves-effect waves-light written-button" type="submit">
-          <i class="fas fa-pencil-alt written-icon"></i>
-      </button>
       <b>Ingredients:</b> {{recipe.ingredients}}<br>
       <b>Instructions: </b>{{recipe.instructions}}<br>
       <b>Serves: </b>{{recipe.serves}} <br>
@@ -25,10 +22,13 @@
       <span>Very Difficult</span>
       {% endif %}
       <br>
-      <form action="{{url_for('bookmark_recipe_button', recipe_id=recipe._id)}}"" method="POST">
-      <button class="btn waves-effect waves-light delete-button red" type="submit">
-          <i class="fas fa-trash-alt"></i>
-      </form>
+      <div>
+      <a href="{{url_for('bookmark_recipe_button', recipe_name=recipe.recipe_name)}}">
+      <button class="btn waves-effect waves-light bookmark-button" type="submit">
+          <i class="material-icons bookmark-icon">bookmark_border</i>
+      </button>
+      </a>
+      </div>
       </div>
       <br>
     <div class="col s5">

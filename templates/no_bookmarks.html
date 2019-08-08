@@ -32,7 +32,7 @@
       <span>Very Difficult</span>
       {% endif %}
       <br>
-      <form action="{{url_for('bookmark_recipe_button', recipe_id=recipe._id)}}" method="POST">
+      <form action="{{url_for('remove_bookmark_button', recipe_name=recipe.recipe_name)}}" method="POST">
       <button class="btn waves-effect waves-light delete-button red" type="submit">
           <i class="fas fa-trash-alt"></i>
       </form>

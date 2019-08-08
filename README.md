@@ -89,11 +89,13 @@ The back end of this application interacts with two MongoDB collections - catego
 
 #### Categories
 ![Categories screenshot](https://i.imgur.com/bvAXjTR.jpg)
+
 The categories collection is comprised of sixteen entries.  At the front-end this collection controls the carousels on the Browse page & the
 checkboxes available for selection on the Upload page.
 
 #### Recipes
 ![Categories screenshot](https://i.imgur.com/NE12Gr3.jpg)
+
 The recipes collection is comprised of many fields which are not present for each recipe instance.  The majority of the fields shown in the above
 will be present in every entry due to the fact that they are require or automatically populated during the upload phase.  Certain instances of
 recipes may have additional entries for the sixteen previously mentioned categories, & may or may not contain the bookermarks & promoted/promoted_key

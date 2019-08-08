@@ -6,7 +6,7 @@ allows users to upload & save their own recipes while also searching & browsing 
 The site also serves the purpose of allowing the administator to attract revenue, either through promotion of their own recipes, through the inclusion
 of product placement, or through a pay for promotion service where individuals pay a fee to have their recipes promoted.
 
-## Notice for the administator
+## Notice to the administator
 Currently this site is designed for five promoted recipes.  To display a recipe in the promoted carousel on the Browse page give the recipe the field
 of "promoted" in the Mongo database & a value of "on" ("promoted":"on").  Should this be applied to more than five recipes it will not break the code
 & all recipes will display in the carousel.
@@ -120,8 +120,10 @@ user.  There are four paths that may be taken (note all usernames used in testin
 3. Bookmarks present but no authored recipes for user.  This was tested by logging in using username 'Paul Simon' & successfully rendered 'no_authored.html'.
 4. No bookmarks or authored recipes by user.  This was tested by logging in using username 'Michael Harris' & successfully rendered 'no_recipes.html'.
 
+A similar test was run as that described above was run to ensure the correct page was being rendered based on the presence of search results.
 
-Finally ran my Javascript code through JS Hint (https://jshint.com/) to flag any potential bugs. None were returned.
+Finally all Javascript code was run through JS Hint (https://jshint.com/) to flag any potential bugs. None were returned.  The app.py file was checked
+for bugs using https://pythonbuddy.com/
 
 ## Deployment
 This site is hosted & deployed using Herouku & is located at (INPUT URL). 

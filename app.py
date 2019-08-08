@@ -84,10 +84,13 @@ def search_recipes_button():
     random_number=str(random.randrange(1,6))
     search_param = request.form.get('search_param')
     search_input = request.form.get('search_input')
-    recipes=mongo.db.recipes.find({search_param : {'$regex' : ".*"+search_input+".*"}})
+    search_results=mongo.db.recipes.find({search_param : {'$regex' : ".*"+search_input+".*"}})
+    search_list = list(mongo.db.recipes.find({search_param : {'$regex' : ".*"+search_input+".*"}}))
     promoted_recipes=mongo.db.recipes.find({'promoted_key' : random_number })
-    return render_template("search_results.html", recipes=recipes, promoted_recipes=promoted_recipes)
-
+    if search_list:
+        return render_template("search_results.html", recipes=search_results, promoted_recipes=promoted_recipes)
+    else:
+        return render_template("no_results.html", promoted_recipes=promoted_recipes)
 
 # BROWSE RECIPES ROUTE
 @app.route('/browse_recipes')

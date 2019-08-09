@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="page-heading indie-flower">
-    <h4>Upload A Recipe</h4>
+    <h4>Upload A Recipe {{username}}</h4>
     <hr>
 </div>
 <form action="{{ url_for('upload_recipe_button') }}" method="POST" class="col s12">
@@ -46,14 +46,14 @@
     <!-- image inclusion -->
     <div class="row">
         <div class="input-field col s12">
-            <input name="image_url" id="image-url" type="text" class="validate" required>
+            <input name="image_url" id="image-url" type="url" class="validate" required>
             <label for="image-url">Please enter a valid image URL</label>
         </div>
     </div>
     <!-- hidden username field -->
     <div class="row hidden-row">
         <div class="input-field col s6">
-            <input name="author" id="author" type="text" class="validate" value= {{ username }} required>
+            <input name="author" id="author" type="text" class="validate" value= '{{ username }}' required>
             
         </div>
     </div>

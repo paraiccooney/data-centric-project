@@ -14,7 +14,7 @@
     <div class="row">
         <div class="input-field col s8">
             <input name="ingredients" id="ingredients" type="text" class="validate" required>
-            <label for="ingredients">Ingredients (please separate each with a ",")</label>
+            <label for="ingredients">Ingredients</label>
         </div>
     </div>
     <div class="row">
@@ -29,7 +29,7 @@
             <input oninput=getSliderText() type="range" id="difficulty" name="difficulty" step="25" value="50">
             <div align="center" style="font-size:25px;"><output name="amount" id="slider">Difficulty (Moderate)</output></div>
             <div class="input-field">
-                <input name="serves" id="serves" type="text" class="validate" required />
+                <input name="serves" id="serves" type="number" class="validate" required />
                 <label for="serves">Serves</label>
             </div>
         </div>

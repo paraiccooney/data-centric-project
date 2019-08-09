@@ -10,7 +10,7 @@
 <!-- Render Bookmarked Recipes -->
 <h5 class="indie-flower myRecipeHeading">Bookmarked</h5>
 {% for recipe in recipes %} 
-{% if (username) in recipe.bookmarkers %}  
+{% if (bookmark_tag) in recipe %}
 
 <div class="container-fluid">
   <div class="recipe-heading indie-flower">

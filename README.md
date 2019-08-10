@@ -94,7 +94,7 @@ The categories collection is comprised of sixteen entries.  At the front-end thi
 checkboxes available for selection on the Upload page.
 
 ### Recipes
-![Categories screenshot](https://i.imgur.com/NE12Gr3.jpg)
+![Recipes screenshot](https://i.imgur.com/MXHmf9k.jpg)
 
 The recipes collection is comprised of many fields which are not present for each recipe instance.  The majority of the fields shown in the above
 will be present in every entry due to the fact that they are require or automatically populated during the upload phase.  Certain instances of

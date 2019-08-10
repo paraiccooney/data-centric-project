@@ -1,13 +1,13 @@
 # [Data Driven Recipe Application](https://paraic-cooney-recipe-app.herokuapp.com/)
 This is an interactive web application with both front-end & back-end functionality.  It constitutes the third of my four projects which form the assessment 
 basis of my Full-Stack Web Development course with The Code Institute.
-The purpose of this project is to allow users to interact with a back-end database of recipes using an appealing & intuative front-end.  The application
+The purpose of this project is to allow users to interact with a back-end database of recipes using an appealing & intuitive front-end.  The application
 allows users to upload & save their own recipes while also searching & browsing recipes submitted by others & bookmarking them for later recall.
-The applicationalso serves the purpose of allowing the administator to attract revenue, either through promotion of their own recipes, through the inclusion
+The application also serves the purpose of allowing the administrator to attract revenue, either through promotion of their own recipes, through the inclusion
 of product placement, or through a pay for promotion service where individuals pay a fee to have their recipes promoted.
 
-## Notice to the administator
-Currently this applicationis designed for five promoted recipes.  To display a recipe in the promoted carousel on the Browse page give the recipe the field
+## Notice to the administrator
+Currently this application is designed for five promoted recipes.  To display a recipe in the promoted carousel on the Browse page give the recipe the field
 of "promoted" in the Mongo database & a value of "on" ("promoted":"on").  Should this be applied to more than five recipes it will not break the code
 & all recipes will display in the carousel.
 To enable a promoted recipe to be displayed on the Search Results page the recipe must be given a field of "promoted_key" & unique value between
@@ -15,15 +15,15 @@ one & five ("promoted_key":"3").  If you wish to add more promoted recipes chang
 file) & assign corresponding unique values to the promoted recipes (eg "promoted_key":"8" , "promoted_key":"12", etc).
 
 ## UX
-The design goal of this project was to make the front-end as appealing & intuatively interactive as possible while also providing a warm colourful 
-display which serves to stimulate the users senses.  An orange theme was choosen along with a visually rich backround image of fresh ingredients along
+The design goal of this project was to make the front-end as appealing & intuitively interactive as possible while also providing a warm colourful 
+display which serves to stimulate the users senses.  An orange theme was chosen along with a visually rich background image of fresh ingredients along
 with a linen background image to add a rustic feel.
 
-For the application administator I also wanted to be able to give them the ability to integrate promoted recipes (which serve as the revenue stream for the application)
+For the application administrator I also wanted to be able to give them the ability to integrate promoted recipes (which serve as the revenue stream for the application)
 without taking away from the user-generated feel & rendering the application overly-commercial.  To do so I incorporated a promoted recipe carousel in the 
 browse section & also included a random promoted recipe underneath any search results.
 
-The application was also design using a mobile-first approach to ensure respinsive design & assist in search enginge optimisation.
+The application was also design using a mobile-first approach to ensure responsive design & assist in search engine optimisation.
 
 ## Technologies Used
 1. HTML
@@ -50,7 +50,7 @@ matching the username.
 The Browse functionality can be accessed via the Browse tab.  It displays a number of carousels consisting of thumbnail images & recipe names. Upon
 click the individual recipe is rendered on a separate tab.  The purpose of this section is to allow the user to browse many recipes visually & by
 category in order to quickly process & narrow many recipes (as opposed to a list detailing all recipes or recipes details).
-At the top of the Browse page is the promoted carousel which is to be utilised by the application administator as outlined above in the UX section.
+At the top of the Browse page is the promoted carousel which is to be utilised by the application administrator as outlined above in the UX section.
 
 **Feature 3 - Upload Recipe Functionality**
 As this application is to be comprised primarily of user generated content it was imperative that the user be given the ability to upload their own recipes.
@@ -62,7 +62,7 @@ The search feature allows the user to search based on a number of parameters (re
 relevant with a greater number of user generated content.  The functionality was designed to be as minimalistic as possible.
 
 **Feature - Bookmark add/remove buttons**
-The add/remove bookmark feature was implimented to give users the ability to save recipes which have been generated by other users.
+The add/remove bookmark feature was implemented to give users the ability to save recipes which have been generated by other users.
 
 **Feature - Delete buttons**
 The delete feature allows users to delete recipes they themselves authored.
@@ -72,7 +72,7 @@ The delete feature allows users to delete recipes they themselves authored.
 I future I would like to impliment the ability to search by additional parameters such as difficulty & category.  I would also like to include
 the ability to search by multiple criteria & a search function on the My Recipes page to allow the user to search through their own recipes (bookmarked
 & authored).
-Additionally I would like to remove the case sensitivity of the search by manipulating the search imput.
+Additionally I would like to remove the case sensitivity of the search by manipulating the search input.
 
 **Update authored recipes**
 I would like to grant the user the ability to update their own authored recipes.
@@ -81,7 +81,7 @@ I would like to grant the user the ability to update their own authored recipes.
 I would like to give the user the ability to upload a photo file locally as opposed to a photo-url.
 
 **User feedback**
-I would like to impliment either a comment section or ratings system to allow other users to provide feedback on recipes.  Once this is implimented
+I would like to impliment either a comment section or ratings system to allow other users to provide feedback on recipes.  Once this is implemented
 I would then include it as a search parameter.
 
 ## Data Structure

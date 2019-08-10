@@ -37,13 +37,13 @@ def my_recipes():
     recipes=mongo.db.recipes
     username = session["username"]
     bookmark_tag= username+"-bookmark"
-    bookmark_user = username+'_bookmarked'
+    bookmarked=list(mongo.db.recipes.find({username+'-bookmark' : 'on' }))
     authored=list(mongo.db.recipes.find({'author' : username }))
-    bookmarks_present = True
+    allRecipes= recipes.find()
     
     # if statement to display page based on present of authored & bookmarked recipes
     # if there's no authored or bookmarked recipes
-    if authored and bookmarks_present: 
+    if authored and bookmarked: 
         return render_template("myrecipes.html", authored=recipes.find({'author': username}), username=username, recipes2=mongo.db.recipes.find(), 
         bookmark_tag=bookmark_tag)
     
@@ -52,7 +52,7 @@ def my_recipes():
         return render_template("no_bookmarks.html", recipes=recipes.find({'author': username}), username=username)
     
     # if there's bookmarked but no authored
-    elif bookmarks_present:
+    elif bookmarked:
         return render_template("no_authored.html", recipes=recipes.find(), username=username, bookmark_tag=bookmark_tag)
     
     else:

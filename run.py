@@ -53,7 +53,7 @@ def my_recipes():
     
     # if there's bookmarked but no authored
     elif bookmarked:
-        return render_template("no_authored.html", recipes=recipes.find(), username=username, bookmark_tag=bookmark_tag)
+        return render_template("no_authored.html", recipes=recipes.find({username+'-bookmark' : 'on' }), username=username, bookmark_tag=bookmark_tag)
     
     else:
         return render_template("no_recipes.html", username=username)

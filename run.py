@@ -36,7 +36,7 @@ def index():
 def my_recipes():
     recipes=mongo.db.recipes
     username = session["username"]
-    bookmark_tag= username+"-bookmark"
+    bookmark_tag= username+'-bookmark'
     bookmarked=list(mongo.db.recipes.find({username+'-bookmark' : 'on' }))
     authored=list(mongo.db.recipes.find({'author' : username }))
     allRecipes= recipes.find()
@@ -44,7 +44,7 @@ def my_recipes():
     # if statement to display page based on present of authored & bookmarked recipes
     # if there's no authored or bookmarked recipes
     if authored and bookmarked: 
-        return render_template("myrecipes.html", authored=recipes.find({'author': username}), username=username, recipes2=mongo.db.recipes.find(), 
+        return render_template("myrecipes.html", authored=recipes.find({'author': username}), username=username, recipes2=mongo.db.recipes.find({username+'-bookmark' : 'on' }), 
         bookmark_tag=bookmark_tag)
     
     # if there's authored but no bookmarked
@@ -125,15 +125,14 @@ def bookmark_recipe_button(recipe_name):
     return redirect(url_for("my_recipes")) 
     
 # REMOVE BOOKMARK ROUTE
-@app.route('/bookmarked/<recipe_name>')
+@app.route('/bookmarkremoved/<recipe_name>')
 def remove_bookmark_button(recipe_name):
     username=session["username"]
     bookmark_tag= username+"-bookmark"
     recipes = mongo.db.recipes
-    recipe = recipes.update({"recipe_name": recipe_name}, {'$unset': {bookmark_tag}})
+    recipe = recipes.update({"recipe_name": recipe_name}, {'$set': {bookmark_tag: "off"}})
     
-    return redirect(url_for("my_recipes"))  
-
+    return redirect(url_for("my_recipes"))
 
 # DELETE-BUTTON ROUTE
 @app.route('/deleted/<recipe_name>')

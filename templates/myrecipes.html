@@ -77,9 +77,10 @@
         <span>Difficult</span> {% elif recipe.difficulty == "100" %}
         <span>Very Difficult</span> {% endif %}
       <div>
-        <a href="{{url_for('remove_bookmark_button', recipe_name=recipe.recipe_name)}}">
-      <button class="btn waves-effect waves-light remove-bookmark-button red" type="submit">
+      <a href="{{url_for('remove_bookmark_button', recipe_name=recipe.recipe_name)}}">
+      <button class="btn waves-effect waves-light remove-bookmark-button" type="submit">
           <i class="fas fa-trash-alt delete-icon"></i>
+      </button>
       </a>
       </div>
       <br>

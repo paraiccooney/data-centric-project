@@ -87,8 +87,10 @@ def search_recipes_button():
     search_list = list(mongo.db.recipes.find({search_param : {'$regex' : ".*"+search_input+".*"}}))
     promoted_recipes=mongo.db.recipes.find({'promoted_key' : random_number })
     if search_list:
+        print("search successful")
         return render_template("search_results.html", recipes=search_results, promoted_recipes=promoted_recipes)
     else:
+        print("no results")
         return render_template("no_results.html", promoted_recipes=promoted_recipes)
 
 # BROWSE RECIPES ROUTE
@@ -147,5 +149,5 @@ def delete_recipe_button(recipe_name):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
+            debug=False)
             

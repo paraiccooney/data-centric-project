@@ -23,6 +23,7 @@
     <h7>author: {{recipe.author}}</h7>
     <hr>
   </div>
+  
   <div class="row remove-white-space recipe-container">
     <div class="col s7">
       <b>Ingredients:</b> {{recipe.ingredients}}<br>
@@ -38,7 +39,7 @@
       <span>Very Difficult</span> {% endif %}
       <div>
       <a href="{{url_for('bookmark_recipe_button', recipe_name=recipe.recipe_name)}}">
-      <button action="{{url_for('bookmark_recipe_button', recipe_id=recipe._id)}}" class="btn waves-effect waves-light bookmark-button" type="submit">
+      <button class="btn waves-effect waves-light bookmark-button" type="submit">
           <i class="material-icons bookmark-icon">bookmark_border</i>
       </button>
       </a>
